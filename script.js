@@ -38,15 +38,25 @@ function openModal(id) {
   modal.classList.add('flex');
   document.body.classList.add('modal-open');
   const panel = modal.querySelector('.modal-panel');
+  const isOffcanvas = modal.classList.contains('offcanvas-modal');
   gsap.fromTo(modal, { opacity: 0 }, { opacity: 1, duration: .25 });
-  gsap.fromTo(panel, { y: 45, opacity: 0, scale: .98 }, { y: 0, opacity: 1, scale: 1, duration: .45, ease: 'power3.out' });
+  if (isOffcanvas) {
+    gsap.fromTo(panel, { x: '100%', opacity: 1 }, { x: 0, opacity: 1, duration: .55, ease: 'power3.out' });
+  } else {
+    gsap.fromTo(panel, { y: 45, opacity: 0, scale: .98 }, { y: 0, opacity: 1, scale: 1, duration: .45, ease: 'power3.out' });
+  }
   modal.querySelector('[data-close]')?.focus();
 }
 
 function closeModal(modal) {
   const panel = modal.querySelector('.modal-panel');
-  gsap.to(panel, { y: 25, opacity: 0, duration: .2 });
-  gsap.to(modal, { opacity: 0, duration: .25, onComplete: () => {
+  const isOffcanvas = modal.classList.contains('offcanvas-modal');
+  if (isOffcanvas) {
+    gsap.to(panel, { x: '100%', duration: .4, ease: 'power3.inOut' });
+  } else {
+    gsap.to(panel, { y: 25, opacity: 0, duration: .2 });
+  }
+  gsap.to(modal, { opacity: 0, duration: isOffcanvas ? .4 : .25, onComplete: () => {
     modal.classList.add('hidden'); modal.classList.remove('flex');
     document.body.classList.remove('modal-open');
     if (lastFocused) lastFocused.focus();
@@ -80,6 +90,7 @@ document.querySelectorAll('.graduate-card').forEach(card => {
   const name = card.querySelector('h3');
   const content = name?.parentElement;
   if (!name || !content) return;
+  const graduateName = name.textContent.trim();
 
   const badge = document.createElement('span');
   badge.className = 'verified-badge';
@@ -92,6 +103,24 @@ document.querySelectorAll('.graduate-card').forEach(card => {
   meta.className = 'graduate-meta';
   meta.innerHTML = '<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 10 10-5 10 5-10 5L2 10Z"/><path d="M6 12.5V17c3 2.2 9 2.2 12 0v-4.5M22 10v6"/></svg>Class ’24</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h10v5a5 5 0 0 1-10 0V3Z"/><path d="M5 5H3v2a4 4 0 0 0 4 4M19 5h2v2a4 4 0 0 1-4 4M12 13v4M8 21h8M9 17h6"/></svg>TTSD Alumni</span>';
   content.appendChild(meta);
+
+  const toggle = document.createElement('button');
+  toggle.type = 'button';
+  toggle.className = 'graduate-toggle focus-ring';
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.setAttribute('aria-label', `Expand ${graduateName}'s graduate profile`);
+  toggle.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>';
+  content.appendChild(toggle);
+
+  toggle.addEventListener('click', () => {
+    const willOpen = !card.classList.contains('is-open');
+    document.querySelectorAll('.graduate-card.is-open').forEach(openCard => {
+      openCard.classList.remove('is-open');
+      openCard.querySelector('.graduate-toggle')?.setAttribute('aria-expanded', 'false');
+    });
+    card.classList.toggle('is-open', willOpen);
+    toggle.setAttribute('aria-expanded', String(willOpen));
+  });
 });
 
 const globalMapElement = document.getElementById('globalMap');
