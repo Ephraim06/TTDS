@@ -265,6 +265,23 @@
       transform: none !important
     }
 
+    .hero-actions {
+      position: relative;
+      z-index: 5;
+      visibility: visible;
+      opacity: 1
+    }
+
+    .hero-actions>* {
+      display: inline-flex;
+      min-height: 54px;
+      align-items: center;
+      justify-content: center;
+      visibility: visible;
+      opacity: 1;
+      white-space: nowrap
+    }
+
     #graduates .graduate-list { border-top: 1px solid rgba(31, 45, 79, .14) }
     #graduates .graduate-card { position: relative; display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 16px; min-height: 90px; padding: 12px 4px !important; border: 0; border-bottom: 1px solid rgba(31, 45, 79, .14); border-radius: 0 !important; background: transparent !important; box-shadow: none; transform: none !important; transition: background .3s ease, border-radius .3s ease, padding .3s ease }
     #graduates .graduate-card:hover { background: rgba(255, 255, 255, .55) !important; box-shadow: none }
@@ -316,11 +333,7 @@
 </head>
 
 <body class="bg-cream font-sans text-ink antialiased">
-  <a href="#main"
-    class="focus-ring fixed left-3 top-3 z-[100] -translate-y-20 rounded bg-gold px-4 py-2 font-bold text-ink transition focus:translate-y-0">Skip
-    to content</a>
-
-  <div class="bg-wine px-4 py-2.5 text-center text-xs font-semibold tracking-wide text-white sm:text-sm">
+   <div class="bg-wine px-4 py-2.5 text-center text-xs font-semibold tracking-wide text-white sm:text-sm">
     <span class="mr-2 inline-block h-2 w-2 animate-pulse rounded-full bg-gold"></span><span
       class="sm:hidden">Applications now open</span><span class="hidden sm:inline">Applications are open for our next
       online intake</span>
@@ -399,10 +412,10 @@
             thinking and prepare to lead transformation—in ministry, community and public life.</p>
           <div class="hero-actions mt-9 flex flex-col gap-3 sm:flex-row">
             <button data-open="applyModal"
-              class="focus-ring group rounded-full bg-gold px-7 py-4 text-sm font-bold text-ink transition hover:bg-white">Begin
+              class="focus-ring group w-full rounded-full bg-gold px-7 py-4 text-sm font-bold text-ink transition hover:bg-white sm:w-auto">Begin
               your journey <span class="ml-2 inline-block transition group-hover:translate-x-1">→</span></button>
             <a href="#academics"
-              class="focus-ring rounded-full border border-white/35 bg-white/5 px-7 py-4 text-center text-sm font-bold backdrop-blur transition hover:bg-white hover:text-ink">Explore
+              class="focus-ring w-full rounded-full border border-white/35 bg-white/5 px-7 py-4 text-center text-sm font-bold backdrop-blur transition hover:bg-white hover:text-ink sm:w-auto">Explore
               programmes</a>
           </div>
         </div>

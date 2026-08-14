@@ -169,7 +169,7 @@ if (!reducedMotion && window.gsap) {
   intro.from('.hero-kicker', { y: 20, opacity: 0, duration: .6 })
     .from('.hero-title', { y: 45, opacity: 0, duration: .9 }, '-=.35')
     .from('.hero-copy', { y: 25, opacity: 0, duration: .6 }, '-=.5')
-    .from('.hero-actions > *', { y: 18, opacity: 0, stagger: .12, duration: .5 }, '-=.35')
+    .from('.hero-actions > *', { y: 18, stagger: .12, duration: .5, clearProps: 'transform' }, '-=.35')
     .from('.hero-stats', { y: 25, opacity: 0, duration: .6 }, '-=.25');
 
   gsap.to('.hero-mask', { opacity: .82, scrollTrigger: { trigger: 'main section:first-child', start: 'top top', end: 'bottom top', scrub: true } });
