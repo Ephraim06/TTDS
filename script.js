@@ -56,6 +56,32 @@ menuClose.addEventListener('click', closeMenu);
 backdrop.addEventListener('click', closeMenu);
 document.querySelectorAll('.mobile-link').forEach(link => link.addEventListener('click', closeMenu));
 
+const siteHeader = document.getElementById('siteHeader');
+const updateHeaderState = () => siteHeader?.classList.toggle('is-scrolled', window.scrollY > 110);
+updateHeaderState();
+window.addEventListener('scroll', updateHeaderState, { passive: true });
+
+const navSectionMap = {
+  about: 'about', mission: 'about', faculty: 'about',
+  academics: 'academics', experience: 'experience', global: 'global', alumni: 'alumni'
+};
+const sectionNavLinks = [...document.querySelectorAll('.nav-link[data-section]')];
+const observedSections = Object.keys(navSectionMap).map(id => document.getElementById(id)).filter(Boolean);
+if ('IntersectionObserver' in window && sectionNavLinks.length) {
+  const navObserver = new IntersectionObserver(entries => {
+    const current = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (!current) return;
+    const activeSection = navSectionMap[current.target.id];
+    sectionNavLinks.forEach(link => {
+      const active = link.dataset.section === activeSection;
+      link.classList.toggle('is-active', active);
+      if (active) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    });
+  }, { rootMargin: '-28% 0px -58% 0px', threshold: [0, .1, .35] });
+  observedSections.forEach(section => navObserver.observe(section));
+}
+
 function openModal(id) {
   const modal = document.getElementById(id);
   if (!modal) return;
@@ -374,6 +400,12 @@ if (!reducedMotion && window.gsap) {
     start: 'top 88%', once: true,
     onEnter: cards => gsap.fromTo(cards, { y: 100, opacity: 0, rotate: 2, scale: .9 }, { y: 0, opacity: 1, rotate: 0, scale: 1, stagger: .16, duration: .95, ease: 'back.out(1.35)' })
   });
+  const presidentTimeline = gsap.timeline({ scrollTrigger: { trigger: '.president-note', start: 'top 82%', once: true } });
+  presidentTimeline
+    .from('.president-monogram', { scale: .4, rotate: -28, opacity: 0, duration: .8, ease: 'back.out(1.8)' })
+    .from('.president-kicker', { x: -24, opacity: 0, duration: .5, ease: 'power3.out' }, '-=.42')
+    .from('.president-quote', { y: 44, opacity: 0, duration: .9, ease: 'power4.out' }, '-=.38')
+    .from('.president-principle', { x: 18, opacity: 0, stagger: .1, duration: .45, ease: 'power2.out' }, '-=.45');
   gsap.utils.toArray('.graduate-card').forEach((card, index) => {
     gsap.set(card, { visibility: 'visible' });
     gsap.from(card, { x: index % 2 ? 60 : -60, opacity: 0, duration: .75, ease: 'power3.out', scrollTrigger: { trigger: card, start: 'top 94%', once: true } });
@@ -388,7 +420,12 @@ if (!reducedMotion && window.gsap) {
   const countryRibbon = document.querySelector('.country-ribbon');
   countryRibbon?.addEventListener('pointerenter', () => gsap.to(countryMarquee, { timeScale: 0, duration: .45 }));
   countryRibbon?.addEventListener('pointerleave', () => gsap.to(countryMarquee, { timeScale: 1, duration: .45 }));
-  gsap.to('#contact .absolute', { rotate: 18, yPercent: -20, ease: 'none', scrollTrigger: { trigger: '#contact', start: 'top bottom', end: 'bottom top', scrub: true } });
+  gsap.to('.next-orbit', { rotate: 38, yPercent: -16, ease: 'none', scrollTrigger: { trigger: '#contact', start: 'top bottom', end: 'bottom top', scrub: 1.2 } });
+  const nextChapterTimeline = gsap.timeline({ scrollTrigger: { trigger: '.next-chapter', start: 'top 82%', once: true } });
+  nextChapterTimeline
+    .from('.next-title', { y: 55, opacity: 0, duration: .9, ease: 'power4.out' })
+    .from('.next-step', { x: 42, opacity: 0, stagger: .12, duration: .65, ease: 'power3.out' }, '-=.48');
+  gsap.from('footer .footer-link', { y: 14, opacity: 0, stagger: .045, duration: .5, ease: 'power2.out', scrollTrigger: { trigger: 'footer', start: 'top 88%', once: true } });
 
   const motionMedia = gsap.matchMedia();
   motionMedia.add('(min-width: 768px) and (pointer: fine)', () => {

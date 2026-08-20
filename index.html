@@ -332,6 +332,37 @@
       white-space: nowrap
     }
 
+    .president-note { position: relative; isolation: isolate; overflow: hidden; border-radius: 36px; background: #0054AA; color: #fff; box-shadow: 0 30px 80px rgba(0,22,45,.17) }
+    .president-note::before { content: '“'; position: absolute; right: 2%; top: -16%; z-index: -1; font-family: Georgia,serif; font-size: clamp(18rem,36vw,34rem); line-height: 1; color: rgba(86,168,230,.13) }
+    .president-note::after { content: ''; position: absolute; inset: 0; z-index: -2; background: radial-gradient(circle at 15% 25%,rgba(86,168,230,.2),transparent 26%), linear-gradient(120deg,rgba(0,22,45,.18),transparent 48%) }
+    .president-monogram { position: relative; display: grid; width: 104px; height: 104px; place-items: center; border: 1px solid rgba(86,168,230,.5); border-radius: 999px; color: #56A8E6; font-family: 'Century Gothic','Outfit',sans-serif; font-size: 1.45rem; font-weight: 700; letter-spacing: -.06em }
+    .president-monogram::before { content: ''; position: absolute; inset: 8px; border: 1px dashed rgba(86,168,230,.4); border-radius: inherit }
+    .president-principle { display: flex; align-items: center; gap: 10px; color: rgba(255,255,255,.58); font-size: 11px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase }
+    .president-principle::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #56A8E6; box-shadow: 0 0 14px rgba(86,168,230,.8) }
+
+    .next-chapter { position: relative; isolation: isolate; overflow: hidden; border-radius: 40px; background: #D8DAD5; color: #00162D; box-shadow: 0 28px 80px rgba(0,22,45,.12) }
+    .next-chapter::before { content: ''; position: absolute; inset: 0; z-index: -2; background: radial-gradient(circle at 8% 12%,rgba(86,168,230,.55),transparent 30%),linear-gradient(135deg,rgba(255,255,255,.5),transparent 55%) }
+    .next-orbit { position: absolute; right: -145px; top: -150px; z-index: -1; width: 420px; height: 420px; border: 1px solid rgba(0,84,170,.18); border-radius: 999px }
+    .next-orbit::before,.next-orbit::after { content: ''; position: absolute; border: 1px solid rgba(0,84,170,.13); border-radius: inherit }
+    .next-orbit::before { inset: 42px }.next-orbit::after { inset: 92px }
+    .next-path { overflow: hidden; border: 1px solid rgba(0,22,45,.1); border-radius: 28px; background: rgba(255,255,255,.6); backdrop-filter: blur(14px) }
+    .next-step { display: grid; grid-template-columns: 48px minmax(0,1fr); gap: 18px; padding: 22px; border-bottom: 1px solid rgba(0,22,45,.1) }
+    .next-step:last-child { border-bottom: 0 }
+    .next-step-number { display: grid; width: 42px; height: 42px; place-items: center; border-radius: 999px; background: #00162D; color: #56A8E6; font-size: 11px; font-weight: 700 }
+    .footer-link { display: block; width: fit-content; color: rgba(255,255,255,.58); font-size: 14px; transition: color .25s ease, transform .25s ease }
+    .footer-link:hover { color: #fff; transform: translateX(3px) }
+    .footer-rule { height: 1px; background: linear-gradient(90deg,rgba(86,168,230,.65),rgba(255,255,255,.08),transparent) }
+
+    #siteHeader { transition: transform .4s ease, opacity .3s ease }
+    .nav-shell { margin-top: 14px; border: 1px solid rgba(255,255,255,.16); border-radius: 22px; background: rgba(0,22,45,.68); box-shadow: 0 16px 42px rgba(0,22,45,.16); backdrop-filter: blur(20px); transition: margin .35s ease, background .35s ease, box-shadow .35s ease }
+    #siteHeader.is-scrolled { position: fixed; top: 0 }
+    #siteHeader.is-scrolled .nav-shell { margin-top: 10px; background: rgba(0,22,45,.92); box-shadow: 0 18px 50px rgba(0,22,45,.3) }
+    .nav-link { position: relative; padding: 12px 0; color: rgba(255,255,255,.7); font-size: 13px; font-weight: 700; transition: color .25s ease }
+    .nav-link::after { content: ''; position: absolute; left: 0; right: 0; bottom: 5px; height: 2px; border-radius: 999px; background: #56A8E6; transform: scaleX(0); transform-origin: right; transition: transform .3s ease }
+    .nav-link:hover,.nav-link.is-active { color: #fff }
+    .nav-link:hover::after,.nav-link.is-active::after { transform: scaleX(1); transform-origin: left }
+    .mobile-menu-number { min-width: 28px; color: #56A8E6; font-size: 10px; font-weight: 700; letter-spacing: .12em }
+
     .alumni-hero { position: relative; isolation: isolate; overflow: hidden; border-radius: 36px; background: #00162D; color: #fff; box-shadow: 0 30px 80px rgba(0,22,45,.18) }
     .alumni-hero::before { content: '2024'; position: absolute; right: -2%; bottom: -24%; z-index: -1; font-family: 'Century Gothic','Outfit',sans-serif; font-size: clamp(9rem,22vw,20rem); font-weight: 700; line-height: .78; letter-spacing: -.09em; color: rgba(86,168,230,.075) }
     .alumni-seal { position: relative; display: grid; width: 92px; height: 92px; flex: 0 0 auto; place-items: center; border: 1px solid rgba(86,168,230,.4); border-radius: 999px; color: #56A8E6 }
@@ -433,8 +464,8 @@
 
     @media(max-width:1023px) {
       #siteHeader { width: 100%; max-width: 100vw }
-      #siteHeader nav { position: relative; width: 100% }
-      #menuButton { position: absolute !important; right: 20px; top: 16px; z-index: 999; display: grid !important; opacity: 1 !important; visibility: visible !important }
+      #siteHeader nav { position: relative; width: calc(100% - 24px); margin-inline: 12px }
+      #menuButton { z-index: 999; display: grid !important; opacity: 1 !important; visibility: visible !important }
     }
     @media(min-width:1024px) { #menuButton { display: none !important } }
   </style>
@@ -443,7 +474,7 @@
   </script>
 </head>
 
-<body class="loading bg-cream font-sans text-ink antialiased">
+<body id="top" class="loading bg-cream font-sans text-ink antialiased">
   <div id="pageLoader" aria-hidden="true">
     <div id="loaderCurtain"></div>
     <div id="loaderContent">
@@ -469,32 +500,25 @@
       class="focus-ring ml-2 underline decoration-gold decoration-2 underline-offset-4">Start your application</button>
   </div>
 
-  <header id="siteHeader" class="absolute left-0 right-0 z-40 border-b border-white/15 text-white">
-    <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation">
-      <a href="#" class="focus-ring flex shrink-0 items-center gap-3" aria-label="TTSD home">
-        <span class="grid h-16 w-24 place-items-center rounded-xl bg-white px-2 shadow-lg"><img
-            src="assets/brand/ttsd-logo.png" alt="" class="h-auto w-full"></span>
-        <span class="hidden leading-tight sm:block"><strong class="block font-display text-base sm:text-lg">Tom
-            Tirivangani</strong><span class="text-[10px] uppercase tracking-[.19em] text-white/70">School of
-            Divinity</span></span>
+  <header id="siteHeader" class="absolute left-0 right-0 z-40 text-white">
+    <nav class="nav-shell mx-auto flex max-w-7xl items-center justify-between px-3 py-3 sm:px-4 lg:px-5" aria-label="Main navigation">
+      <a href="#top" class="focus-ring flex shrink-0 items-center gap-3" aria-label="TTSD home">
+        <span class="grid h-12 w-20 place-items-center rounded-xl bg-white px-2 shadow-lg"><img src="assets/brand/ttsd-logo.png" alt="" class="h-auto w-full"></span>
+        <span class="hidden leading-tight xl:block"><strong class="block font-display text-sm">Tom Tirivangani</strong><span class="text-[9px] uppercase tracking-[.2em] text-white/55">School of Divinity</span></span>
       </a>
-      <div class="hidden items-center gap-7 lg:flex">
-        <a class="focus-ring text-sm font-semibold hover:text-gold" href="#about">About</a>
-        <a class="focus-ring text-sm font-semibold hover:text-gold" href="#mission">Mission</a>
-        <a class="focus-ring text-sm font-semibold hover:text-gold" href="#faculty">Staff</a>
-        <a class="focus-ring text-sm font-semibold hover:text-gold" href="#academics">Academics</a>
-        <a class="focus-ring text-sm font-semibold hover:text-gold" href="#experience">Student Experience</a>
-        <a class="focus-ring text-sm font-semibold hover:text-gold" href="#alumni">Alumni</a>
-        <a class="focus-ring text-sm font-semibold hover:text-gold" href="#contact">Contact</a>
-        <button data-open="prospectusModal"
-          class="focus-ring rounded-full border border-white/40 px-5 py-2.5 text-sm font-bold hover:bg-white hover:text-ink">Get
-          prospectus</button>
-        <button data-open="applyModal"
-          class="focus-ring rounded-full bg-gold px-5 py-2.5 text-sm font-bold text-ink hover:bg-white">Apply
-          now</button>
+      <div class="hidden items-center gap-6 lg:flex">
+        <div class="flex items-center gap-6 border-r border-white/15 pr-6">
+          <a class="nav-link focus-ring" href="#about" data-section="about">The College</a>
+          <a class="nav-link focus-ring" href="#academics" data-section="academics">Study</a>
+          <a class="nav-link focus-ring" href="#experience" data-section="experience">Student Life</a>
+          <a class="nav-link focus-ring" href="#global" data-section="global">Global Family</a>
+          <a class="nav-link focus-ring" href="#alumni" data-section="alumni">Alumni</a>
+        </div>
+        <button data-open="prospectusModal" class="focus-ring text-xs font-bold text-white/70 transition hover:text-white">Programme guide</button>
+        <button data-open="applyModal" class="focus-ring inline-flex items-center gap-2 rounded-full bg-gold px-5 py-3 text-xs font-bold text-ink transition hover:bg-white">Apply now <span aria-hidden="true">→</span></button>
       </div>
       <button id="menuButton"
-        class="focus-ring grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/50 bg-wine text-white shadow-lg"
+        class="focus-ring grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/25 bg-white/10 text-white"
         aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M4 7h16M4 12h16M4 17h16" />
@@ -504,23 +528,21 @@
   </header>
 
   <aside id="mobileMenu"
-    class="fixed inset-y-0 right-0 z-[70] w-[88%] max-w-sm translate-x-full bg-ink p-7 text-white shadow-2xl"
+    class="fixed inset-y-0 right-0 z-[70] flex w-[92%] max-w-md translate-x-full flex-col overflow-y-auto overflow-x-hidden bg-ink p-6 text-white shadow-2xl sm:p-8"
     aria-hidden="true">
-    <div class="mb-14 flex items-center justify-between"><span class="font-display text-xl">Explore TTSD</span><button
-        id="menuClose" class="focus-ring grid h-11 w-11 place-items-center rounded-full border border-white/20"
-        aria-label="Close menu">✕</button></div>
-    <div class="flex flex-col gap-1 text-2xl font-semibold">
-      <a class="mobile-link border-b border-white/10 py-4" href="#about">About</a><a
-        class="mobile-link border-b border-white/10 py-4" href="#mission">Mission</a><a
-        class="mobile-link border-b border-white/10 py-4" href="#faculty">Staff</a><a
-        class="mobile-link border-b border-white/10 py-4" href="#academics">Academics</a><a
-        class="mobile-link border-b border-white/10 py-4" href="#experience">Student Experience</a><a
-        class="mobile-link border-b border-white/10 py-4" href="#alumni">Alumni</a><a
-        class="mobile-link border-b border-white/10 py-4" href="#contact">Contact</a>
+    <div class="pointer-events-none absolute -bottom-16 -right-8 font-display text-[10rem] font-bold leading-none text-white/[.025]" aria-hidden="true">T</div>
+    <div class="flex items-center justify-between border-b border-white/10 pb-6"><a href="#top" class="mobile-link rounded-xl bg-white p-2"><img src="assets/brand/ttsd-logo.png" alt="TTSD" class="w-24"></a><button id="menuClose" class="focus-ring grid h-11 w-11 place-items-center rounded-full border border-white/20" aria-label="Close menu">✕</button></div>
+    <p class="mt-7 text-[10px] font-bold uppercase tracking-[.24em] text-gold">Explore the college</p>
+    <div class="mt-3 flex flex-col text-xl font-semibold sm:text-2xl">
+      <a class="mobile-link flex items-center border-b border-white/10 py-3.5" href="#about"><span class="mobile-menu-number">01</span>The College</a>
+      <a class="mobile-link flex items-center border-b border-white/10 py-3.5" href="#faculty"><span class="mobile-menu-number">02</span>Leadership</a>
+      <a class="mobile-link flex items-center border-b border-white/10 py-3.5" href="#academics"><span class="mobile-menu-number">03</span>Areas of Study</a>
+      <a class="mobile-link flex items-center border-b border-white/10 py-3.5" href="#experience"><span class="mobile-menu-number">04</span>Student Life</a>
+      <a class="mobile-link flex items-center border-b border-white/10 py-3.5" href="#global"><span class="mobile-menu-number">05</span>Global Family</a>
+      <a class="mobile-link flex items-center border-b border-white/10 py-3.5" href="#alumni"><span class="mobile-menu-number">06</span>Alumni</a>
     </div>
-    <button data-open="applyModal" class="mt-10 w-full rounded-full bg-gold px-6 py-4 font-bold text-ink">Apply
-      online</button>
-    <p class="mt-8 text-sm text-white/55">200 Sanford Ave North<br>Hamilton, Ontario, Canada</p>
+    <div class="relative mt-auto grid grid-cols-2 gap-3 pt-7"><button data-open="prospectusModal" class="rounded-full border border-white/20 px-4 py-3 text-xs font-bold">Programme guide</button><button data-open="applyModal" class="rounded-full bg-gold px-4 py-3 text-xs font-bold text-ink">Apply now</button></div>
+    <div class="relative mt-6 flex items-end justify-between text-xs leading-5 text-white/40"><p>Hamilton, Canada<br>Learning worldwide</p><a class="text-right hover:text-white" href="mailto:thettsom@gmail.com">Contact<br>admissions ↗</a></div>
   </aside>
   <div id="menuBackdrop" class="pointer-events-none fixed inset-0 z-[60] bg-ink/70 opacity-0 backdrop-blur-sm"></div>
 
@@ -868,25 +890,31 @@
     </section>
 
     <section class="bg-white px-5 pt-24 sm:px-8 lg:pt-32">
-      <div
-        class="reveal mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-wine text-white lg:grid lg:grid-cols-[.55fr_1.45fr]">
-        <div class="relative min-h-[360px] overflow-hidden bg-slate"><img src="assets/leadership/tom-tirivangani.png"
-            alt="Professor Tom Tirivangani" class="absolute inset-0 h-full w-full object-cover object-top"
-            loading="lazy">
-          <div class="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent"></div>
-          <p class="absolute bottom-6 left-6 text-xs font-bold uppercase tracking-[.18em]">Professor Tom Tirivangani</p>
+      <article class="president-note reveal mx-auto max-w-7xl p-7 sm:p-10 lg:p-14">
+        <div class="grid gap-12 lg:grid-cols-[.56fr_1.44fr] lg:gap-16">
+          <div class="flex flex-col items-start lg:justify-between">
+            <div>
+              <span class="president-monogram" aria-hidden="true">TT</span>
+              <p class="president-kicker mt-8 text-xs font-bold uppercase tracking-[.24em] text-gold">Office of the President</p>
+              <h2 class="mt-3 font-display text-3xl font-semibold">A message for those called to lead.</h2>
+            </div>
+            <div class="mt-10 border-l border-white/20 pl-5 lg:mt-16">
+              <p class="text-sm font-bold">Professor Tom Tirivangani</p>
+              <p class="mt-1 text-xs leading-5 text-white/50">Founder, President<br>& Chancellor</p>
+            </div>
+          </div>
+          <div class="border-t border-white/20 pt-9 lg:border-l lg:border-t-0 lg:pl-16 lg:pt-2">
+            <blockquote class="president-quote max-w-4xl font-display text-3xl leading-[1.18] sm:text-4xl lg:text-5xl">Education is an agent of change. <span class="text-gold">Package yourself as a minister of the Word—the time is now.</span></blockquote>
+            <p class="mt-8 max-w-3xl text-base leading-8 text-white/70">Our vision is to release graduates grounded in theology and ministry, yet fully equipped to understand leadership, development, law, politics and public administration—servant leaders prepared to transform the societies they are called to serve.</p>
+            <div class="mt-9 flex flex-wrap gap-x-7 gap-y-4">
+              <span class="president-principle">Biblical depth</span>
+              <span class="president-principle">Societal literacy</span>
+              <span class="president-principle">Transformational leadership</span>
+            </div>
+            <button data-open="presidentModal" class="focus-ring mt-10 inline-flex items-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-ink transition hover:bg-gold">Read the complete message <span aria-hidden="true">→</span></button>
+          </div>
         </div>
-        <div class="p-8 sm:p-12 lg:p-16">
-          <p class="eyebrow text-xs font-bold text-gold">From the president</p>
-          <blockquote class="mt-8 font-display text-3xl leading-snug sm:text-4xl">“Education is an agent of change.
-            Package yourself as a minister of the Word—the time is now.”</blockquote>
-          <p class="mt-7 max-w-2xl leading-7 text-white/70">The TTSD vision is to release graduates who are well versed
-            in theology and ministry, while also understanding leadership, management, development, law, politics and
-            public administration.</p><button data-open="presidentModal"
-            class="mt-8 rounded-full border border-white/35 px-6 py-3 text-sm font-bold hover:bg-white hover:text-ink">Read
-            the complete message</button>
-        </div>
-      </div>
+      </article>
     </section>
 
     <section id="alumni" class="overflow-hidden bg-[#F1F4F6] px-5 py-24 sm:px-8 lg:py-32">
@@ -1151,45 +1179,61 @@
       </div>
     </section>
 
-    <section id="contact" class="relative overflow-hidden bg-gold px-5 py-24 sm:px-8 lg:py-32">
-      <div class="absolute -bottom-32 -right-24 font-display text-[22rem] leading-none text-white/20">T</div>
-      <div class="reveal relative mx-auto max-w-5xl text-center">
-        <p class="eyebrow text-xs font-bold text-wine">Your next chapter</p>
-        <h2 class="mt-5 font-display text-5xl leading-tight sm:text-7xl">Called to more?<br>Prepare for it.</h2>
-        <p class="mx-auto mt-6 max-w-xl text-ink/70">Take the first step toward purposeful, informed and transformative
-          Christian leadership.</p>
-        <div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row"><button data-open="applyModal"
-            class="rounded-full bg-ink px-8 py-4 font-bold text-white hover:bg-wine">Start your application</button><a
-            href="mailto:thettsom@gmail.com"
-            class="rounded-full border border-ink/30 px-8 py-4 font-bold hover:bg-white">Email admissions</a></div>
+    <section id="contact" class="bg-white px-5 py-24 sm:px-8 lg:py-32">
+      <div class="next-chapter reveal mx-auto max-w-7xl p-7 sm:p-10 lg:p-14">
+        <span class="next-orbit" aria-hidden="true"></span>
+        <div class="grid gap-12 lg:grid-cols-[1.12fr_.88fr] lg:items-center lg:gap-16">
+          <div>
+            <div class="inline-flex items-center gap-3 rounded-full border border-ink/10 bg-white/55 px-4 py-2 text-[10px] font-bold uppercase tracking-[.2em] text-wine"><span class="h-2 w-2 rounded-full bg-wine"></span>Admissions are open</div>
+            <p class="mt-8 text-xs font-bold uppercase tracking-[.24em] text-wine">Your next chapter</p>
+            <h2 class="next-title mt-5 max-w-3xl font-display text-5xl font-semibold leading-[.98] sm:text-6xl lg:text-7xl">Your calling deserves <span class="text-wine">preparation.</span></h2>
+            <p class="mt-7 max-w-2xl text-lg leading-8 text-ink/65">Build the biblical depth, practical wisdom and leadership confidence to serve with clarity—wherever God has placed you.</p>
+            <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+              <button data-open="applyModal" class="focus-ring inline-flex items-center justify-center gap-3 rounded-full bg-ink px-8 py-4 font-bold text-white transition hover:bg-wine">Begin your enquiry <span aria-hidden="true">→</span></button>
+              <button data-open="prospectusModal" class="focus-ring inline-flex items-center justify-center rounded-full border border-ink/20 bg-white/40 px-8 py-4 font-bold transition hover:bg-white">Request programme guide</button>
+            </div>
+            <div class="mt-10 flex flex-wrap gap-x-8 gap-y-3 border-t border-ink/10 pt-6 text-xs font-bold uppercase tracking-[.14em] text-ink/45"><span>100% online</span><span>Global community</span><span>Hamilton, Canada</span></div>
+          </div>
+          <aside class="next-path" aria-label="Your admissions pathway">
+            <div class="border-b border-ink/10 px-6 py-5"><p class="text-xs font-bold uppercase tracking-[.2em] text-wine">A simple way forward</p></div>
+            <div class="next-step"><span class="next-step-number">01</span><div><h3 class="font-bold">Explore your direction</h3><p class="mt-1 text-sm leading-6 text-ink/55">Review the areas of study that align with your ministry and leadership calling.</p></div></div>
+            <div class="next-step"><span class="next-step-number">02</span><div><h3 class="font-bold">Tell us about yourself</h3><p class="mt-1 text-sm leading-6 text-ink/55">Share your interests, location and goals through our short enquiry form.</p></div></div>
+            <div class="next-step"><span class="next-step-number">03</span><div><h3 class="font-bold">Connect with admissions</h3><p class="mt-1 text-sm leading-6 text-ink/55">Receive personal guidance on the most suitable next step for your journey.</p></div></div>
+          </aside>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="bg-ink px-5 pb-8 pt-16 text-white sm:px-8">
-    <div class="mx-auto grid max-w-7xl gap-12 border-b border-white/10 pb-14 md:grid-cols-4">
-      <div class="md:col-span-2"><span class="inline-block rounded-xl bg-white p-3"><img
-            src="assets/brand/ttsd-logo.png" alt="Tom Tirivangani School of Divinity" class="w-44"></span>
-        <p class="mt-5 max-w-sm text-sm leading-6 text-white/50">More than just a Bible school—a global centre for
-          spiritual and academic excellence, nurturing leaders for change and transformation.</p>
+  <footer class="relative overflow-hidden bg-ink px-5 pb-8 pt-16 text-white sm:px-8 lg:pt-20">
+    <div class="pointer-events-none absolute -bottom-24 -right-8 font-display text-[11rem] font-bold leading-none tracking-[-.08em] text-white/[.025] sm:text-[18rem]" aria-hidden="true">TTSD</div>
+    <div class="relative mx-auto max-w-7xl">
+      <div class="footer-rule"></div>
+      <div class="grid gap-12 py-14 sm:grid-cols-2 lg:grid-cols-[1.35fr_.65fr_.7fr_.9fr] lg:gap-10">
+        <div>
+          <a href="#top" class="inline-block rounded-2xl bg-white p-3" aria-label="TTSD home"><img src="assets/brand/ttsd-logo.png" alt="Tom Tirivangani School of Divinity" class="w-44"></a>
+          <p class="mt-6 max-w-md font-display text-2xl leading-9 text-white/80">More than just a Bible school. Forming thoughtful Christian leaders for a changing world.</p>
+          <p class="mt-6 max-w-sm text-sm leading-7 text-white/45">A global online Christian college rooted in biblical conviction, academic development and transformational leadership.</p>
+        </div>
+        <nav aria-label="Footer navigation">
+          <h3 class="text-xs font-bold uppercase tracking-[.2em] text-gold">Explore</h3>
+          <div class="mt-6 space-y-4"><a class="footer-link" href="#about">About TTSD</a><a class="footer-link" href="#mission">Mission & vision</a><a class="footer-link" href="#faculty">Leadership & staff</a><a class="footer-link" href="#academics">Areas of study</a><a class="footer-link" href="#alumni">Class of 2024</a></div>
+        </nav>
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-[.2em] text-gold">Begin</h3>
+          <div class="mt-6 space-y-4"><button data-open="applyModal" class="footer-link text-left">Admissions enquiry</button><button data-open="prospectusModal" class="footer-link text-left">Programme guide</button><a class="footer-link" href="#experience">Student experience</a><a class="footer-link" href="#global">Global community</a></div>
+        </div>
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-[.2em] text-gold">Contact</h3>
+          <address class="mt-6 text-sm not-italic leading-7 text-white/55">200 Sanford Avenue North<br>Hamilton, Ontario L8L 5Z8<br>Canada</address>
+          <a class="footer-link mt-5" href="mailto:thettsom@gmail.com">thettsom@gmail.com</a><a class="footer-link mt-3" href="tel:+12897752119">+1 289 775 2119</a><a class="footer-link mt-3" href="https://www.cvrministries.org/" target="_blank" rel="noopener">CVR Ministries <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
-      <div>
-        <h3 class="text-xs font-bold uppercase tracking-widest text-gold">Visit</h3>
-        <address class="mt-4 text-sm not-italic leading-7 text-white/60">200 Sanford Ave North<br>Hamilton, ON L8L
-          5Z8<br>Canada</address>
+      <div class="footer-rule opacity-50"></div>
+      <div class="flex flex-col gap-5 py-7 text-xs text-white/35 sm:flex-row sm:items-center sm:justify-between">
+        <p>© <span id="year"></span> Tom Tirivangani School of Divinity. All rights reserved.</p>
+        <div class="flex items-center gap-5"><p class="uppercase tracking-[.16em]">Re-Educate · Inspire · Release</p><a href="#top" class="focus-ring grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/65 transition hover:border-gold hover:text-gold" aria-label="Back to top">↑</a></div>
       </div>
-      <div>
-        <h3 class="text-xs font-bold uppercase tracking-widest text-gold">Connect</h3><a
-          class="mt-4 block text-sm text-white/60 hover:text-white"
-          href="mailto:thettsom@gmail.com">thettsom@gmail.com</a><a
-          class="mt-3 block text-sm text-white/60 hover:text-white" href="tel:+12897752119">289.775.2119</a><a
-          class="mt-3 block text-sm text-white/60 hover:text-white" href="https://www.cvrministries.org/"
-          target="_blank" rel="noopener">CVR Ministries ↗</a>
-      </div>
-    </div>
-    <div class="mx-auto flex max-w-7xl flex-col gap-3 pt-7 text-xs text-white/40 sm:flex-row sm:justify-between">
-      <p>© <span id="year"></span> Tom Tirivangani School of Divinity.</p>
-      <p>Re-Educate • Inspire • Release</p>
     </div>
   </footer>
 
