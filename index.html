@@ -10,19 +10,19 @@
   <meta name="keywords"
     content="online bible college, Christian college Canada, theology courses online, ministry training, pastoral leadership, School of Divinity Hamilton">
   <meta name="author" content="Tom Tirivangani School of Divinity">
-  <meta name="theme-color" content="#071b2e">
+  <meta name="theme-color" content="#00162D">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Tom Tirivangani School of Divinity">
   <meta property="og:description"
     content="Re-educate. Inspire. Release. Prepare to lead change through faith-centred online education.">
-  <meta property="og:image" content="assets/ttu-hero.png">
+  <meta property="og:image" content="assets/ttu-hero-diverse.png">
   <meta property="og:locale" content="en_CA">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://www.cvrministries.org/pages/tt-university">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
@@ -31,17 +31,18 @@
     tailwind.config = {
       theme: {
         extend: {
-          colors: { ink: '#1f2d4f', navy: '#263656', wine: '#197eaa', gold: '#c9a12a', cream: '#f5f8fa', mist: '#e7f1f6', slate: '#91a4b1', sky: '#dceef5' },
-          fontFamily: { sans: ['DM Sans', 'sans-serif'], display: ['Playfair Display', 'serif'] },
-          boxShadow: { lift: '0 24px 80px rgba(7,27,46,.14)' }
+          colors: { ink: '#00162D', navy: '#00162D', wine: '#0054AA', gold: '#56A8E6', cream: '#F7F9FA', mist: '#E9EEF2', slate: '#315275', sky: '#D8DAD5' },
+          fontFamily: { sans: ['Outfit', 'Century Gothic', 'Arial', 'sans-serif'], display: ['Outfit', 'Century Gothic', 'Arial', 'sans-serif'] },
+          boxShadow: { lift: '0 24px 80px rgba(0,22,45,.14)' }
         }
       }
     }
   </script>
   <style>
     :root {
-      --gold: #c9a12a;
-      --ink: #1f2d4f
+      --gold: #56A8E6;
+      --ink: #00162D;
+      --blue: #0054AA;
     }
 
     * {
@@ -49,15 +50,20 @@
     }
 
     body {
-      overflow-x: hidden
+      overflow-x: hidden;
+      font-size: 17px
     }
+
+    html, body { width: 100%; max-width: 100% }
+
+    .hero-copy { color: rgba(255, 255, 255, .82); opacity: 1 !important }
 
     .noise {
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.035'/%3E%3C/svg%3E")
     }
 
     .hero-mask {
-      background: linear-gradient(90deg, rgba(31, 45, 79, .98) 0%, rgba(31, 45, 79, .91) 34%, rgba(31, 45, 79, .48) 68%, rgba(31, 45, 79, .2) 100%)
+      background: linear-gradient(90deg, rgba(0, 22, 45, .98) 0%, rgba(0, 22, 45, .92) 35%, rgba(0, 22, 45, .48) 65%, rgba(0, 22, 45, .12) 100%)
     }
 
     .eyebrow {
@@ -78,7 +84,7 @@
     .program-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 24px 60px rgba(31, 45, 79, .13);
-      border-color: #c9a12a
+      border-color: #0054AA
     }
 
     .graduate-card {
@@ -110,7 +116,7 @@
       flex-wrap: wrap;
       align-items: center;
       gap: 7px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Outfit', 'Century Gothic', sans-serif;
       font-weight: 700;
       line-height: 1.25
     }
@@ -130,7 +136,7 @@
       height: 20px;
       place-items: center;
       color: white;
-      background: #29bd58;
+      background: #0054AA;
       clip-path: polygon(50% 0, 63% 9%, 79% 6%, 87% 21%, 100% 29%, 96% 45%, 100% 61%, 87% 70%, 80% 86%, 63% 84%, 50% 100%, 37% 84%, 20% 87%, 13% 71%, 0 62%, 4% 46%, 0 29%, 14% 20%, 21% 5%, 37% 9%)
     }
 
@@ -163,7 +169,7 @@
     .graduate-meta svg {
       width: 17px;
       height: 17px;
-      color: #197eaa
+      color: #0054AA
     }
 
     .marquee-track {
@@ -181,8 +187,10 @@
       overflow: hidden
     }
 
+    body.loading { overflow: hidden }
+
     .focus-ring:focus-visible {
-      outline: 3px solid #c9a12a;
+      outline: 3px solid #56A8E6;
       outline-offset: 3px
     }
 
@@ -222,11 +230,14 @@
       .reveal {
         visibility: visible
       }
+
+      .mission-word { opacity: 1 !important; transform: none !important }
+      .map-star, .map-star * { animation: none !important }
     }
   </style>
   <style>
     #globalMap {
-      height: 470px;
+      height: 560px;
       width: 100%;
       border-radius: 32px;
       background: #dfe5e8;
@@ -243,20 +254,59 @@
       border-radius: 10px 0 0 0;
       background: rgba(255, 255, 255, .78);
       color: #526075;
-      font: 9px/1.35 'DM Sans', sans-serif
+      font: 9px/1.35 'Outfit', sans-serif
     }
 
     #globalMap .leaflet-control-attribution a {
-      color: #197eaa
+      color: #0054AA
     }
 
     #globalMap .leaflet-interactive {
-      filter: drop-shadow(0 3px 5px rgba(31, 45, 79, .28))
+      filter: drop-shadow(0 3px 5px rgba(0, 22, 45, .28))
     }
 
     .map-shell {
       background: linear-gradient(145deg, #eef2f4, #d8e0e4);
-      box-shadow: 0 24px 70px rgba(31, 45, 79, .14)
+      box-shadow: 0 24px 70px rgba(0, 22, 45, .14)
+    }
+
+    .global-summary { box-shadow: 0 18px 45px rgba(0,22,45,.08) }
+    .global-stat { transition: transform .3s ease, color .3s ease }
+    .global-stat:hover { transform: translateX(5px); color: #0054AA }
+    .country-ribbon > div { will-change: transform }
+    .country-track { width: max-content; animation: countryMarquee 34s linear infinite }
+    .country-track:hover { animation-play-state: paused }
+    @keyframes countryMarquee { to { transform: translateX(-50%) } }
+    .motion-enhanced .country-track { animation: none }
+    .ttsd-star-icon { border: 0 !important; background: transparent !important; overflow: visible !important; pointer-events: none !important }
+    .map-star { position: relative; display: block; width: 32px; height: 32px; transform: translateZ(0); mix-blend-mode: screen }
+    .map-star-core, .map-star-halo, .map-star-ray { position: absolute; left: 50%; top: 50%; display: block; border-radius: 999px; pointer-events: none }
+    .map-star-core { z-index: 3; width: var(--star-size, 5px); height: var(--star-size, 5px); background: #56A8E6; box-shadow: 0 0 4px 1px #56A8E6, 0 0 11px 4px rgba(86,168,230,.9), 0 0 22px 7px rgba(0,84,170,.55); animation: starlightTwinkle var(--star-duration, 10s) ease-in-out infinite; animation-delay: var(--star-delay, 0s) }
+    .map-star-halo { z-index: 1; width: 18px; height: 18px; border: 1px solid rgba(86,168,230,.75); box-shadow: 0 0 13px rgba(86,168,230,.4), inset 0 0 8px rgba(86,168,230,.3); animation: starlightHalo calc(var(--star-duration, 10s) * 1.08) ease-in-out infinite; animation-delay: var(--star-delay, 0s) }
+    .map-star-ray { z-index: 2; width: 24px; height: 1px; background: linear-gradient(90deg, transparent, rgba(86,168,230,.9), transparent); animation: starlightRay var(--star-duration, 10s) ease-in-out infinite; animation-delay: var(--star-delay, 0s) }
+    .map-star::after { content: ''; position: absolute; left: 50%; top: 50%; z-index: 2; width: 1px; height: 24px; background: linear-gradient(180deg, transparent, rgba(86,168,230,.85), transparent); transform: translate(-50%,-50%); animation: starlightRayVertical var(--star-duration, 10s) ease-in-out infinite; animation-delay: var(--star-delay, 0s) }
+    .map-star--hub .map-star-core { --star-size: 8px; box-shadow: 0 0 5px 2px #56A8E6, 0 0 15px 6px rgba(86,168,230,.95), 0 0 30px 11px rgba(0,84,170,.72) }
+    .map-star--hub .map-star-halo { width: 24px; height: 24px; border-width: 2px }
+    @keyframes starlightTwinkle {
+      0%, 100% { opacity: .38; transform: translate(-50%,-50%) scale(.78) }
+      42% { opacity: .55; transform: translate(-50%,-50%) scale(.9) }
+      56% { opacity: 1; transform: translate(-50%,-50%) scale(1.32) }
+      70% { opacity: .58; transform: translate(-50%,-50%) scale(.92) }
+    }
+    @keyframes starlightHalo {
+      0%, 34% { opacity: 0; transform: translate(-50%,-50%) scale(.45) }
+      56% { opacity: .72 }
+      84%, 100% { opacity: 0; transform: translate(-50%,-50%) scale(2.05) }
+    }
+    @keyframes starlightRay {
+      0%, 38%, 100% { opacity: .05; transform: translate(-50%,-50%) scaleX(.35) }
+      56% { opacity: .78; transform: translate(-50%,-50%) scaleX(1) }
+      76% { opacity: .12; transform: translate(-50%,-50%) scaleX(.5) }
+    }
+    @keyframes starlightRayVertical {
+      0%, 38%, 100% { opacity: .05; transform: translate(-50%,-50%) scaleY(.35) }
+      56% { opacity: .72; transform: translate(-50%,-50%) scaleY(1) }
+      76% { opacity: .1; transform: translate(-50%,-50%) scaleY(.5) }
     }
 
     section:target .reveal {
@@ -282,28 +332,82 @@
       white-space: nowrap
     }
 
-    #graduates .graduate-list { border-top: 1px solid rgba(31, 45, 79, .14) }
-    #graduates .graduate-card { position: relative; display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 16px; min-height: 90px; padding: 12px 4px !important; border: 0; border-bottom: 1px solid rgba(31, 45, 79, .14); border-radius: 0 !important; background: transparent !important; box-shadow: none; transform: none !important; transition: background .3s ease, border-radius .3s ease, padding .3s ease }
-    #graduates .graduate-card:hover { background: rgba(255, 255, 255, .55) !important; box-shadow: none }
-    #graduates .graduate-card>div:first-child { width: 64px; height: 64px; aspect-ratio: 1/1 !important; border-radius: 16px !important; transition: width .35s ease, height .35s ease, border-radius .35s ease }
-    #graduates .graduate-card>div:last-child { position: relative; min-width: 0; padding: 8px 52px 8px 0 !important }
-    #graduates .graduate-card h3 { padding-right: 2px; font-size: 16px }
-    #graduates .graduate-card>div:last-child>p { margin-top: 4px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis }
-    #graduates .graduate-meta { display: none; margin-top: 16px; padding-top: 13px }
+    .alumni-hero { position: relative; isolation: isolate; overflow: hidden; border-radius: 36px; background: #00162D; color: #fff; box-shadow: 0 30px 80px rgba(0,22,45,.18) }
+    .alumni-hero::before { content: '2024'; position: absolute; right: -2%; bottom: -24%; z-index: -1; font-family: 'Century Gothic','Outfit',sans-serif; font-size: clamp(9rem,22vw,20rem); font-weight: 700; line-height: .78; letter-spacing: -.09em; color: rgba(86,168,230,.075) }
+    .alumni-seal { position: relative; display: grid; width: 92px; height: 92px; flex: 0 0 auto; place-items: center; border: 1px solid rgba(86,168,230,.4); border-radius: 999px; color: #56A8E6 }
+    .alumni-seal::after { content: ''; position: absolute; inset: 8px; border: 1px dashed rgba(86,168,230,.38); border-radius: inherit }
+    .alumni-directory { margin-top: 34px; padding: 20px clamp(16px,3vw,30px) 28px; border: 1px solid rgba(0,22,45,.1); border-radius: 30px; background: rgba(255,255,255,.8); box-shadow: 0 22px 60px rgba(0,22,45,.07); backdrop-filter: blur(16px) }
+    .alumni-search { width: min(100%,340px); height: 48px; padding: 0 46px 0 18px; border: 1px solid rgba(0,22,45,.13); border-radius: 999px; background: #fff; color: #00162D; outline: none; transition: border-color .25s ease, box-shadow .25s ease }
+    .alumni-search:focus { border-color: #56A8E6; box-shadow: 0 0 0 4px rgba(86,168,230,.16) }
+    #alumni .graduate-list { border-top: 1px solid rgba(0, 22, 45, .14) }
+    #alumni .graduate-card { position: relative; display: grid; grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 16px; min-height: 90px; padding: 12px 4px !important; border: 0; border-bottom: 1px solid rgba(0, 22, 45, .14); border-radius: 0 !important; background: transparent !important; box-shadow: none; transform: none !important; transition: background .3s ease, border-radius .3s ease, padding .3s ease }
+    #alumni .graduate-card:hover { background: rgba(255, 255, 255, .65) !important; box-shadow: none }
+    #alumni .graduate-card>div:first-child { position: relative; width: 64px; height: 64px; aspect-ratio: 1/1 !important; border-radius: 16px !important; background: linear-gradient(145deg,#315275,#00162D); box-shadow: inset 0 0 0 1px rgba(255,255,255,.18), 0 8px 20px rgba(0,22,45,.12); transition: width .35s ease, height .35s ease, border-radius .35s ease }
+    #alumni .graduate-card>div:first-child::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; border-radius: inherit; background: linear-gradient(180deg, transparent 60%, rgba(0,22,45,.3)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.14) }
+    #alumni .graduate-card img { filter: saturate(.94) contrast(1.045) brightness(1.015); transform-origin: 50% 18% }
+    #alumni .graduate-card.is-open img { filter: saturate(1) contrast(1.03) brightness(1.02) }
+    #alumni .graduate-card>div:last-child { position: relative; min-width: 0; padding: 8px 52px 8px 0 !important }
+    #alumni .graduate-card h3 { padding-right: 2px; font-size: 17px }
+    #alumni .graduate-card>div:last-child>p { margin-top: 4px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis }
+    #alumni .graduate-meta { display: none; margin-top: 16px; padding-top: 13px }
     .graduate-toggle { position: absolute; right: 0; top: 50%; display: grid; width: 38px; height: 38px; transform: translateY(-50%); place-items: center; border: 1px solid rgba(31, 45, 79, .13); border-radius: 999px; background: #fff; color: #1f2d4f; transition: background .3s ease, color .3s ease }
     .graduate-toggle svg { width: 17px; height: 17px; transition: transform .35s ease }
     .graduate-toggle:hover { background: #1f2d4f; color: #fff }
-    #graduates .graduate-card.is-open { grid-template-columns: 132px minmax(0, 1fr); align-items: stretch; margin: 8px 0; padding: 12px !important; border-bottom-color: transparent; border-radius: 24px !important; background: #fff !important; box-shadow: 0 18px 45px rgba(31, 45, 79, .1) }
-    #graduates .graduate-card.is-open>div:first-child { width: 132px; height: 164px; border-radius: 18px !important }
-    #graduates .graduate-card.is-open>div:last-child { display: flex; flex-direction: column; justify-content: center; padding-right: 48px !important }
-    #graduates .graduate-card.is-open>div:last-child>p { white-space: normal }
-    #graduates .graduate-card.is-open .graduate-meta { display: flex }
-    #graduates .graduate-card.is-open .graduate-toggle svg { transform: rotate(45deg) }
-    #graduates .graduate-card.is-open .graduate-toggle { background: #1f2d4f; color: #fff }
+    #alumni .graduate-card.is-open { grid-template-columns: 132px minmax(0, 1fr); align-items: stretch; margin: 8px 0; padding: 12px !important; border-bottom-color: transparent; border-radius: 24px !important; background: #fff !important; box-shadow: 0 18px 45px rgba(0, 22, 45, .1) }
+    #alumni .graduate-card.is-open>div:first-child { width: 132px; height: 164px; border-radius: 18px !important }
+    #alumni .graduate-card.is-open>div:last-child { display: flex; flex-direction: column; justify-content: center; padding-right: 48px !important }
+    #alumni .graduate-card.is-open>div:last-child>p { white-space: normal }
+    #alumni .graduate-card.is-open .graduate-meta { display: flex }
+    #alumni .graduate-card.is-open .graduate-toggle svg { transform: rotate(45deg) }
+    #alumni .graduate-card.is-open .graduate-toggle { background: #00162D; color: #fff }
+    #alumni .graduate-card.is-directory-hidden { display: none }
+    .alumni-empty { display: none; padding: 52px 20px 28px; text-align: center; color: rgba(0,22,45,.58) }
+    .alumni-empty.is-visible { display: block }
+    .alumni-view-all { display: inline-flex; min-height: 48px; align-items: center; justify-content: center; gap: 10px; padding: 0 22px; border-radius: 999px; background: #00162D; color: #fff; font-size: 13px; font-weight: 700; transition: background .25s ease, transform .25s ease }
+    .alumni-view-all:hover { background: #0054AA; transform: translateY(-2px) }
+
+    .mission-word { opacity: .18; transform-origin: left center }
+    .student-life-image { transform-origin: center center }
+    .story-card { transition: transform .35s ease, border-color .35s ease, background .35s ease }
+    .story-card:hover { transform: translateY(-6px); border-color: rgba(86,168,230,.7); background: rgba(255,255,255,.09) }
+    .story-visual { animation: storyDrift 12s ease-in-out infinite alternate }
+    @keyframes storyDrift { to { transform: scale(1.08) translate3d(1.5%, -1%, 0) } }
+    .student-portrait::after { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(180deg, transparent 55%, rgba(0,22,45,.38)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.15) }
+    .student-portrait img { filter: saturate(.96) contrast(1.035); transform-origin: 50% 22% }
+    .purpose-card { transition: background .35s ease, border-color .35s ease, transform .35s ease }
+    .purpose-card:hover { background: rgba(255,255,255,.1); border-color: rgba(86,168,230,.55); transform: translateY(-6px) }
+    .purpose-card:hover .purpose-line { transform: scaleX(1) }
+    .purpose-line { transition: transform .5s cubic-bezier(.2,.8,.2,1) }
+    .leadership-card { box-shadow: 0 30px 80px rgba(0,22,45,.16); transform-style: preserve-3d }
+    .leadership-photo { transition: filter .6s ease; will-change: transform }
+    .leadership-card:hover .leadership-photo { filter: saturate(1.08) contrast(1.02) }
+    .staff-member { transition: background .3s ease, transform .3s ease }
+    .staff-member:hover { background: rgba(86,168,230,.08); transform: translateY(-3px) }
+
+    #pageLoader { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; overflow: hidden; background: #00162D; color: #fff }
+    #loaderCurtain { position: absolute; inset: 0; background: #0054AA; transform: translateY(100%) }
+    #loaderContent { position: relative; z-index: 2; width: min(78vw, 420px); text-align: center }
+    #loaderLine { height: 2px; margin-top: 28px; overflow: hidden; background: rgba(255,255,255,.18) }
+    #loaderBar { width: 100%; height: 100%; background: #56A8E6; transform: scaleX(0); transform-origin: left center }
+    #scrollProgress { position: fixed; left: 0; right: 0; top: 0; z-index: 150; height: 3px; pointer-events: none; background: #56A8E6; transform: scaleX(0); transform-origin: left center }
+    .motion-cursor { position: fixed; left: 0; top: 0; z-index: 160; pointer-events: none; border-radius: 999px; opacity: 0; mix-blend-mode: difference }
+    #cursorDot { width: 7px; height: 7px; background: white }
+    #cursorRing { width: 38px; height: 38px; border: 1px solid rgba(255,255,255,.8) }
+    .motion-enhanced .marquee-track { animation: none }
+    .heading-mask { overflow: hidden }
+    .heading-mask > * { will-change: transform }
+    .float-orb { position: absolute; border-radius: 999px; pointer-events: none; filter: blur(1px); opacity: .28 }
+
+    @media(pointer:coarse), (prefers-reduced-motion:reduce) {
+      .motion-cursor { display: none !important }
+    }
 
     @media(max-width:640px) {
+      .hero-actions { width: 100%; max-width: calc(100vw - 40px) }
+      .hero-actions > * { width: 100% !important; max-width: 100% }
+
       #globalMap {
-        height: 390px;
+        height: 420px;
         border-radius: 24px
       }
 
@@ -311,28 +415,52 @@
         border-radius: 28px
       }
 
-      #graduates .graduate-card.is-open {
+      #alumni .graduate-card.is-open {
         grid-template-columns: 96px minmax(0, 1fr)
       }
 
-      #graduates .graduate-card.is-open>div:first-child {
+      #alumni .graduate-card.is-open>div:first-child {
         width: 96px;
         height: 126px
       }
 
-      #graduates .graduate-card.is-open .graduate-meta {
+      #alumni .graduate-card.is-open .graduate-meta {
         align-items: flex-start;
         flex-direction: column;
         gap: 8px
       }
     }
+
+    @media(max-width:1023px) {
+      #siteHeader { width: 100%; max-width: 100vw }
+      #siteHeader nav { position: relative; width: 100% }
+      #menuButton { position: absolute !important; right: 20px; top: 16px; z-index: 999; display: grid !important; opacity: 1 !important; visibility: visible !important }
+    }
+    @media(min-width:1024px) { #menuButton { display: none !important } }
   </style>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"CollegeOrUniversity","name":"Tom Tirivangani School of Divinity","description":"A global Christian college offering online education in theology, ministry and transformational leadership.","address":{"@type":"PostalAddress","streetAddress":"200 Sanford Avenue North","addressLocality":"Hamilton","addressRegion":"ON","postalCode":"L8L 5Z8","addressCountry":"CA"},"email":"thettsom@gmail.com","founder":{"@type":"Person","name":"Professor Tom Tirivangani"},"parentOrganization":{"@type":"Organization","name":"Christ's Voice of Restoration Ministries","url":"https://www.cvrministries.org/"},"areaServed":"Worldwide"}
   </script>
 </head>
 
-<body class="bg-cream font-sans text-ink antialiased">
+<body class="loading bg-cream font-sans text-ink antialiased">
+  <div id="pageLoader" aria-hidden="true">
+    <div id="loaderCurtain"></div>
+    <div id="loaderContent">
+      <img src="assets/brand/ttsd-logo.png" alt="" class="mx-auto w-44 rounded-xl bg-white p-4">
+      <p class="mt-6 text-xs font-bold uppercase tracking-[.32em] text-white/70">Re-Educate · Inspire · Release</p>
+      <div id="loaderLine"><div id="loaderBar"></div></div>
+      <p id="loaderCount" class="mt-3 text-right text-xs font-bold text-gold">0%</p>
+    </div>
+  </div>
+  <div id="scrollProgress" aria-hidden="true"></div>
+  <div id="cursorDot" class="motion-cursor" aria-hidden="true"></div>
+  <div id="cursorRing" class="motion-cursor" aria-hidden="true"></div>
+  <div class="overflow-hidden bg-ink py-3 text-white" aria-label="TTSD values">
+    <div class="marquee-track flex gap-9 whitespace-nowrap text-xs font-bold uppercase tracking-[.22em]">
+      <span>Re-Educate</span><span class="text-gold">✦</span><span>Inspire</span><span class="text-gold">✦</span><span>Release</span><span class="text-gold">✦</span><span>Faith with intellectual rigour</span><span class="text-gold">✦</span><span>Global online learning</span><span class="text-gold">✦</span><span>Re-Educate</span><span class="text-gold">✦</span><span>Inspire</span><span class="text-gold">✦</span><span>Release</span><span class="text-gold">✦</span><span>Faith with intellectual rigour</span><span class="text-gold">✦</span><span>Global online learning</span><span class="text-gold">✦</span>
+    </div>
+  </div>
    <div class="bg-wine px-4 py-2.5 text-center text-xs font-semibold tracking-wide text-white sm:text-sm">
     <span class="mr-2 inline-block h-2 w-2 animate-pulse rounded-full bg-gold"></span><span
       class="sm:hidden">Applications now open</span><span class="hidden sm:inline">Applications are open for our next
@@ -344,7 +472,7 @@
   <header id="siteHeader" class="absolute left-0 right-0 z-40 border-b border-white/15 text-white">
     <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8" aria-label="Main navigation">
       <a href="#" class="focus-ring flex shrink-0 items-center gap-3" aria-label="TTSD home">
-        <span class="grid h-12 w-16 place-items-center rounded-lg bg-white/95 px-2"><img
+        <span class="grid h-16 w-24 place-items-center rounded-xl bg-white px-2 shadow-lg"><img
             src="assets/brand/ttsd-logo.png" alt="" class="h-auto w-full"></span>
         <span class="hidden leading-tight sm:block"><strong class="block font-display text-base sm:text-lg">Tom
             Tirivangani</strong><span class="text-[10px] uppercase tracking-[.19em] text-white/70">School of
@@ -352,10 +480,11 @@
       </a>
       <div class="hidden items-center gap-7 lg:flex">
         <a class="focus-ring text-sm font-semibold hover:text-gold" href="#about">About</a>
-        <a class="focus-ring text-sm font-semibold hover:text-gold" href="#faculty">Faculty</a>
+        <a class="focus-ring text-sm font-semibold hover:text-gold" href="#mission">Mission</a>
+        <a class="focus-ring text-sm font-semibold hover:text-gold" href="#faculty">Staff</a>
         <a class="focus-ring text-sm font-semibold hover:text-gold" href="#academics">Academics</a>
         <a class="focus-ring text-sm font-semibold hover:text-gold" href="#experience">Student Experience</a>
-        <a class="focus-ring text-sm font-semibold hover:text-gold" href="#graduates">Graduates</a>
+        <a class="focus-ring text-sm font-semibold hover:text-gold" href="#alumni">Alumni</a>
         <a class="focus-ring text-sm font-semibold hover:text-gold" href="#contact">Contact</a>
         <button data-open="prospectusModal"
           class="focus-ring rounded-full border border-white/40 px-5 py-2.5 text-sm font-bold hover:bg-white hover:text-ink">Get
@@ -365,7 +494,7 @@
           now</button>
       </div>
       <button id="menuButton"
-        class="focus-ring grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/30 lg:hidden"
+        class="focus-ring grid h-11 w-11 shrink-0 place-items-center rounded-full border border-white/50 bg-wine text-white shadow-lg"
         aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M4 7h16M4 12h16M4 17h16" />
@@ -382,10 +511,11 @@
         aria-label="Close menu">✕</button></div>
     <div class="flex flex-col gap-1 text-2xl font-semibold">
       <a class="mobile-link border-b border-white/10 py-4" href="#about">About</a><a
-        class="mobile-link border-b border-white/10 py-4" href="#faculty">Faculty</a><a
+        class="mobile-link border-b border-white/10 py-4" href="#mission">Mission</a><a
+        class="mobile-link border-b border-white/10 py-4" href="#faculty">Staff</a><a
         class="mobile-link border-b border-white/10 py-4" href="#academics">Academics</a><a
         class="mobile-link border-b border-white/10 py-4" href="#experience">Student Experience</a><a
-        class="mobile-link border-b border-white/10 py-4" href="#graduates">Graduates</a><a
+        class="mobile-link border-b border-white/10 py-4" href="#alumni">Alumni</a><a
         class="mobile-link border-b border-white/10 py-4" href="#contact">Contact</a>
     </div>
     <button data-open="applyModal" class="mt-10 w-full rounded-full bg-gold px-6 py-4 font-bold text-ink">Apply
@@ -397,8 +527,8 @@
   <main id="main">
     <section
       class="relative flex min-h-[88svh] items-end overflow-hidden bg-ink pt-28 text-white md:min-h-[920px] md:items-center">
-      <img src="assets/ttu-hero.png" alt="Theology students learning together around an open Bible"
-        class="absolute inset-0 h-full w-full object-cover object-[67%_center]" fetchpriority="high">
+      <img src="assets/ttu-hero-diverse.png" alt="A diverse group of adult students learning together"
+        class="absolute inset-0 h-full w-full object-cover object-[68%_center]" fetchpriority="high">
       <div class="hero-mask absolute inset-0"></div>
       <div class="noise absolute inset-0"></div>
       <div class="relative mx-auto w-full max-w-7xl px-5 pb-16 pt-28 sm:px-8 md:pb-12 md:pt-40">
@@ -408,7 +538,7 @@
             <span class="h-2 w-2 rounded-full bg-gold"></span>A global online Christian college</div>
           <h1 class="hero-title font-display text-5xl font-semibold leading-[.96] sm:text-6xl md:text-8xl">Learn
             deeply.<br><em class="text-gold">Lead boldly.</em></h1>
-          <p class="hero-copy mt-7 max-w-xl text-base leading-7 text-white/78 sm:text-lg">Form your faith, sharpen your
+          <p class="hero-copy mt-7 max-w-xl text-lg leading-8 text-white/80 sm:text-xl">Form your faith, sharpen your
             thinking and prepare to lead transformation—in ministry, community and public life.</p>
           <div class="hero-actions mt-9 flex flex-col gap-3 sm:flex-row">
             <button data-open="applyModal"
@@ -435,123 +565,156 @@
           class="h-px w-14 bg-gold"></span>Discover</a>
     </section>
 
-    <div class="overflow-hidden border-y border-ink/10 bg-gold py-3 text-ink">
-      <div class="marquee-track flex gap-9 whitespace-nowrap text-xs font-bold uppercase tracking-[.22em]">
-        <span>Re-Educate</span><span>✦</span><span>Inspire</span><span>✦</span><span>Release</span><span>✦</span><span>Faith
-          with intellectual rigour</span><span>✦</span><span>Global online
-          learning</span><span>✦</span><span>Re-Educate</span><span>✦</span><span>Inspire</span><span>✦</span><span>Release</span><span>✦</span><span>Faith
-          with intellectual rigour</span><span>✦</span><span>Global online learning</span><span>✦</span>
-      </div>
-    </div>
-
-    <section id="about" class="relative overflow-hidden px-5 py-24 sm:px-8 lg:py-32">
-      <div class="absolute -right-32 top-20 h-96 w-96 rounded-full border border-gold/30"></div>
-      <div class="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[.85fr_1.15fr] lg:items-start">
-        <div class="reveal">
-          <p class="eyebrow text-xs font-bold text-wine">Our purpose</p>
-          <h2 class="mt-5 font-display text-4xl leading-tight sm:text-5xl">Education that moves beyond the pulpit.</h2>
+    <section id="about" class="relative overflow-hidden bg-cream px-5 py-20 sm:px-8 lg:py-28">
+      <div class="purpose-shell relative mx-auto max-w-7xl overflow-hidden rounded-[2.25rem] bg-ink text-white shadow-lift sm:rounded-[3.5rem]">
+        <div class="purpose-orbit absolute -right-32 -top-44 h-[34rem] w-[34rem] rounded-full border border-gold/25" aria-hidden="true">
+          <span class="absolute bottom-16 left-10 h-4 w-4 rounded-full bg-gold shadow-[0_0_35px_#56A8E6]"></span>
         </div>
-        <div class="reveal lg:pt-10">
-          <p class="text-xl leading-9 text-ink/75 sm:text-2xl">We prepare pastors and Christian leaders who understand
-            <span class="font-display italic text-wine">theology and the world they serve.</span></p>
-          <p class="mt-6 max-w-2xl leading-8 text-ink/60">Our holistic approach brings ministry formation into
-            conversation with leadership, management, development, law, politics and public administration—equipping
-            graduates to become informed agents of change.</p>
-          <div class="mt-10 flex flex-wrap gap-3"><span
-              class="rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-semibold">Biblical
-              depth</span><span
-              class="rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-semibold">Practical
-              leadership</span><span
-              class="rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-semibold">Public
-              impact</span><span
-              class="rounded-full border border-ink/15 bg-white px-4 py-2 text-sm font-semibold">Lifelong
-              learning</span></div>
+        <div class="absolute -bottom-10 -left-4 select-none font-display text-[9rem] font-extrabold uppercase leading-none tracking-[-.08em] text-white/[.025] sm:text-[15rem]" aria-hidden="true">Purpose</div>
+
+        <div class="relative p-7 sm:p-12 lg:p-16">
+          <div class="grid gap-10 border-b border-white/15 pb-12 lg:grid-cols-[1.15fr_.85fr] lg:items-end lg:pb-16">
+            <div class="reveal">
+              <div class="flex items-center gap-4">
+                <span class="grid h-12 w-12 place-items-center rounded-full border border-gold/40 bg-gold/10 text-sm font-bold text-gold">01</span>
+                <p class="eyebrow text-xs font-bold text-gold">Our purpose</p>
+              </div>
+              <h2 class="purpose-title mt-8 max-w-4xl font-display text-4xl font-semibold leading-[1.02] sm:text-6xl lg:text-7xl">Where biblical conviction meets <span class="text-gold">real-world competence.</span></h2>
+            </div>
+            <div class="reveal lg:pb-2">
+              <p class="text-xl leading-8 text-white/75">TTSD forms Christian leaders who can interpret Scripture faithfully, understand society clearly and lead meaningful transformation.</p>
+              <a href="#academics" class="focus-ring mt-8 inline-flex items-center gap-3 border-b border-gold pb-2 text-sm font-bold text-gold">Explore how we teach <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+
+          <div class="purpose-grid mt-8 grid gap-3 md:grid-cols-3">
+            <article class="purpose-card group relative overflow-hidden rounded-[1.75rem] border border-white/15 bg-white/[.055] p-6 sm:p-8">
+              <div class="flex items-start justify-between gap-5">
+                <span class="grid h-14 w-14 place-items-center rounded-2xl bg-gold text-ink">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H11v16H6.5A2.5 2.5 0 0 0 4 21.5v-16Z"/><path d="M20 5.5A2.5 2.5 0 0 0 17.5 3H13v16h4.5a2.5 2.5 0 0 1 2.5 2.5v-16Z"/></svg>
+                </span>
+                <span class="text-xs font-bold tracking-[.2em] text-white/30">FOUNDATION</span>
+              </div>
+              <h3 class="mt-9 text-2xl font-semibold">Think biblically.</h3>
+              <p class="mt-4 leading-7 text-white/55">Develop theological depth and the confidence to handle the Word with wisdom and integrity.</p>
+              <div class="purpose-line absolute bottom-0 left-0 h-1 w-full origin-left scale-x-0 bg-gold"></div>
+            </article>
+
+            <article class="purpose-card group relative overflow-hidden rounded-[1.75rem] border border-white/15 bg-white/[.055] p-6 sm:p-8">
+              <div class="flex items-start justify-between gap-5">
+                <span class="grid h-14 w-14 place-items-center rounded-2xl bg-white text-wine">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m15.5 8.5-2 5-5 2 2-5 5-2Z"/></svg>
+                </span>
+                <span class="text-xs font-bold tracking-[.2em] text-white/30">FORMATION</span>
+              </div>
+              <h3 class="mt-9 text-2xl font-semibold">Lead intelligently.</h3>
+              <p class="mt-4 leading-7 text-white/55">Connect ministry with leadership, management, law, policy and the realities shaping society.</p>
+              <div class="purpose-line absolute bottom-0 left-0 h-1 w-full origin-left scale-x-0 bg-gold"></div>
+            </article>
+
+            <article class="purpose-card group relative overflow-hidden rounded-[1.75rem] border border-white/15 bg-white/[.055] p-6 sm:p-8">
+              <div class="flex items-start justify-between gap-5">
+                <span class="grid h-14 w-14 place-items-center rounded-2xl bg-wine text-white">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>
+                </span>
+                <span class="text-xs font-bold tracking-[.2em] text-white/30">IMPACT</span>
+              </div>
+              <h3 class="mt-9 text-2xl font-semibold">Serve globally.</h3>
+              <p class="mt-4 leading-7 text-white/55">Turn knowledge into faithful action across churches, communities and public life.</p>
+              <div class="purpose-line absolute bottom-0 left-0 h-1 w-full origin-left scale-x-0 bg-gold"></div>
+            </article>
+          </div>
+
+          <div class="purpose-proof mt-8 flex flex-col gap-4 rounded-[1.5rem] bg-white p-5 text-ink sm:flex-row sm:items-center sm:justify-between sm:px-8">
+            <p class="font-semibold">More than just a Bible school.</p>
+            <div class="flex flex-wrap gap-x-7 gap-y-2 text-xs font-bold uppercase tracking-[.14em] text-ink/45"><span>Biblical depth</span><span>Practical leadership</span><span>Public impact</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="faculty" class="overflow-hidden bg-slate px-5 py-24 text-white sm:px-8 lg:py-32">
+    <section id="mission" class="relative overflow-hidden bg-white px-5 py-24 sm:px-8 lg:py-32">
       <div class="mx-auto max-w-7xl">
-        <div class="reveal flex flex-col justify-between gap-6 md:flex-row md:items-end">
-          <div>
-            <p class="eyebrow text-xs font-bold text-gold">College leadership</p>
-            <h2 class="mt-4 max-w-2xl font-display text-4xl sm:text-5xl">Meet the people forming tomorrow’s leaders.
-            </h2>
+        <div class="grid gap-12 lg:grid-cols-[.75fr_1.25fr] lg:items-end">
+          <div class="reveal">
+            <p class="eyebrow text-xs font-bold text-wine">Why TTSD exists</p>
+            <h2 class="mt-5 font-display text-4xl font-semibold leading-tight sm:text-6xl">Formation with a global purpose.</h2>
           </div>
-          <p class="max-w-md text-sm leading-7 text-white/70">A team committed to spiritual formation, academic
-            excellence and the lifelong development of Christian leaders.</p>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <article class="reveal rounded-[2rem] bg-ink p-7 text-white sm:p-9">
+              <span class="text-xs font-bold uppercase tracking-[.18em] text-gold">Our mission</span>
+              <p class="mt-5 text-lg leading-8 text-white/75">To provide accessible, faith-centred education that integrates biblical truth, leadership and practical understanding of society.</p>
+            </article>
+            <article class="reveal rounded-[2rem] bg-mist p-7 sm:p-9">
+              <span class="text-xs font-bold uppercase tracking-[.18em] text-wine">Our vision</span>
+              <p class="mt-5 text-lg leading-8 text-ink/70">To release competent Christian leaders who can guide change and transformation in communities around the world.</p>
+            </article>
+          </div>
         </div>
-        <div class="mt-14 grid gap-5 lg:grid-cols-2">
-          <article class="reveal group overflow-hidden rounded-[2rem] bg-ink lg:grid lg:grid-cols-[.82fr_1.18fr]">
-            <div class="min-h-[420px] overflow-hidden bg-[#556b85]"><img src="assets/leadership/tom-tirivangani.png"
-                alt="Professor Tom Tirivangani, founder and president"
-                class="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105"
-                loading="lazy"></div>
-            <div class="flex flex-col justify-between p-8 sm:p-10">
-              <div>
-                <p class="eyebrow text-[10px] font-bold text-gold">Founder • President • Chancellor</p>
-                <h3 class="mt-4 font-display text-3xl">Professor Tom Tirivangani</h3>
-                <p class="mt-5 text-sm leading-7 text-white/60">Founder of TTSD and an advocate for holistic Christian
-                  education that prepares ministers to understand both theology and the functionality of society.</p>
-              </div><button data-open="presidentModal"
-                class="focus-ring mt-9 w-fit border-b border-gold pb-1 text-sm font-bold text-gold">Read the President’s
-                message →</button>
+        <div class="mt-16 border-y border-ink/10 py-7 sm:py-10" aria-label="Re-Educate, Inspire and Release">
+          <p class="mission-word font-display text-[12vw] font-extrabold uppercase leading-[.78] tracking-[-.06em] text-wine sm:text-[8vw]">Re-Educate</p>
+          <p class="mission-word mt-4 text-right font-display text-[12vw] font-extrabold uppercase leading-[.78] tracking-[-.06em] text-slate sm:text-[8vw]">Inspire</p>
+          <p class="mission-word mt-4 font-display text-[12vw] font-extrabold uppercase leading-[.78] tracking-[-.06em] text-ink sm:text-[8vw]">Release</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="faculty" class="relative overflow-hidden bg-mist px-5 py-24 text-ink sm:px-8 lg:py-32">
+      <div class="absolute -left-40 top-48 h-96 w-96 rounded-full bg-gold/15 blur-3xl" aria-hidden="true"></div>
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal grid gap-7 border-b border-ink/15 pb-10 lg:grid-cols-[1fr_.7fr] lg:items-end">
+          <div>
+            <p class="eyebrow text-xs font-bold text-wine">Executive leadership</p>
+            <h2 class="mt-5 max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-6xl">Leadership grounded in faith, learning and service.</h2>
+          </div>
+          <p class="max-w-lg text-lg leading-8 text-ink/60 lg:justify-self-end">TTSD is led by educators and ministry leaders committed to academic excellence and lifelong Christian formation.</p>
+        </div>
+
+        <div class="leadership-grid mt-12 grid gap-5 lg:grid-cols-2">
+          <article class="leadership-card reveal group relative min-h-[650px] overflow-hidden rounded-[2.25rem] bg-ink text-white sm:min-h-[760px] sm:rounded-[3rem]">
+            <img src="assets/leadership/tom-tirivangani.png" alt="Professor Tom Tirivangani, founder, president and chancellor" class="leadership-photo absolute inset-0 h-full w-full object-cover object-top" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/15 to-transparent"></div>
+            <span class="absolute left-6 top-6 rounded-full border border-white/25 bg-ink/45 px-4 py-2 text-[10px] font-bold uppercase tracking-[.18em] text-white backdrop-blur sm:left-8 sm:top-8">Founder · President · Chancellor</span>
+            <div class="absolute inset-x-0 bottom-0 p-7 sm:p-10">
+              <p class="text-xs font-bold uppercase tracking-[.18em] text-gold">Professor</p>
+              <h3 class="mt-3 font-display text-3xl font-semibold sm:text-5xl">Tom Tirivangani</h3>
+              <p class="mt-4 max-w-xl text-base leading-7 text-white/70">Founder of TTSD and an advocate for holistic Christian education that prepares leaders to understand theology and the world they serve.</p>
+              <button data-open="presidentModal" class="focus-ring mt-7 inline-flex items-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-ink transition hover:bg-gold">President’s message <span aria-hidden="true">→</span></button>
             </div>
           </article>
-          <article
-            class="reveal group overflow-hidden rounded-[2rem] bg-white text-ink lg:grid lg:grid-cols-[.82fr_1.18fr]">
-            <div class="min-h-[420px] overflow-hidden bg-[#556b85]"><img style="height: 500px !important;" src="assets/leadership/colline-tirivangani.png"
-                alt="Apostle Colline Tirivangani, vice president"
-                class="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105"
-                loading="lazy"></div>
-            <div class="flex flex-col justify-between p-8 sm:p-10">
-              <div>
-                <p class="eyebrow text-[10px] font-bold text-wine">Vice President</p>
-                <h3 class="mt-4 font-display text-3xl">Apostle Colline Tirivangani</h3>
-                <p class="mt-5 text-sm leading-7 text-ink/60">Supporting the college’s global mission and the formation
-                  of leaders who can guide change and transformation in the 21st century.</p>
-              </div>
-              <p class="mt-9 text-sm font-bold text-wine">Executive leadership</p>
+
+          <article class="leadership-card reveal group relative min-h-[650px] overflow-hidden rounded-[2.25rem] bg-ink text-white sm:min-h-[760px] sm:rounded-[3rem]">
+            <img src="assets/leadership/colline-tirivangani.png" alt="Apostle Colline Tirivangani, vice president" class="leadership-photo absolute inset-0 h-full w-full object-cover object-top" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-ink via-ink/10 to-transparent"></div>
+            <span class="absolute left-6 top-6 rounded-full border border-white/25 bg-ink/45 px-4 py-2 text-[10px] font-bold uppercase tracking-[.18em] text-white backdrop-blur sm:left-8 sm:top-8">Vice President</span>
+            <div class="absolute inset-x-0 bottom-0 p-7 sm:p-10">
+              <p class="text-xs font-bold uppercase tracking-[.18em] text-gold">Apostle</p>
+              <h3 class="mt-3 font-display text-3xl font-semibold sm:text-5xl">Colline Tirivangani</h3>
+              <p class="mt-4 max-w-xl text-base leading-7 text-white/70">Supporting TTSD’s global mission and the formation of Christian leaders equipped to guide change and transformation.</p>
+              <a href="#contact" class="focus-ring mt-7 inline-flex items-center gap-3 rounded-full bg-white px-6 py-3.5 text-sm font-bold text-ink transition hover:bg-gold">Connect with leadership <span aria-hidden="true">→</span></a>
             </div>
           </article>
         </div>
-        <div class="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <article
-            class="reveal grid grid-cols-[76px_1fr] items-center gap-4 rounded-3xl border border-white/15 bg-white/10 p-3 backdrop-blur">
-            <img src="assets/graduates/anita-saint-louis.png" alt="Anita Saint Louis"
-              class="h-[76px] w-[76px] rounded-2xl object-cover object-top" loading="lazy">
-            <div>
-              <h3 class="font-display text-lg">Anita Saint Louis</h3>
-              <p class="mt-1 text-[10px] font-bold uppercase tracking-widest text-white/55">Registrar</p>
-            </div>
-          </article>
-          <article
-            class="reveal grid grid-cols-[76px_1fr] items-center gap-4 rounded-3xl border border-white/15 bg-white/10 p-3 backdrop-blur">
-            <img src="assets/graduates/keisha-albert.png" alt="Keisha Albert"
-              class="h-[76px] w-[76px] rounded-2xl object-cover object-top" loading="lazy">
-            <div>
-              <h3 class="font-display text-lg">Keisha Albert</h3>
-              <p class="mt-1 text-[10px] font-bold uppercase tracking-widest text-white/55">Assistant Registrar</p>
-            </div>
-          </article>
-          <article
-            class="reveal grid grid-cols-[76px_1fr] items-center gap-4 rounded-3xl border border-white/15 bg-white/10 p-3 backdrop-blur">
-            <img src="assets/graduates/keena-gwata.png" alt="Keena Gwata"
-              class="h-[76px] w-[76px] rounded-2xl object-cover object-top" loading="lazy">
-            <div>
-              <h3 class="font-display text-lg">Keena Gwata</h3>
-              <p class="mt-1 text-[10px] font-bold uppercase tracking-widest text-white/55">Media Relations</p>
-            </div>
-          </article>
-          <article
-            class="reveal grid grid-cols-[76px_1fr] items-center gap-4 rounded-3xl border border-white/15 bg-white/10 p-3 backdrop-blur">
-            <img src="assets/graduates/tamika-bacchus.png" alt="Tamika Bacchus"
-              class="h-[76px] w-[76px] rounded-2xl object-cover object-top" loading="lazy">
-            <div>
-              <h3 class="font-display text-lg">Tamika Bacchus</h3>
-              <p class="mt-1 text-[10px] font-bold uppercase tracking-widest text-white/55">Media Relations</p>
-            </div>
-          </article>
+
+        <div class="staff-directory reveal mt-8 rounded-[2rem] bg-white p-6 shadow-lift sm:p-9 lg:p-11">
+          <div class="flex flex-col justify-between gap-4 border-b border-ink/10 pb-7 sm:flex-row sm:items-end">
+            <div><p class="eyebrow text-xs font-bold text-wine">College office</p><h3 class="mt-3 font-display text-3xl font-semibold">Administration & communications</h3></div>
+            <p class="max-w-sm text-sm leading-6 text-ink/50">The team supporting students, college operations and global communication.</p>
+          </div>
+          <div class="mt-3 grid sm:grid-cols-2 lg:grid-cols-4">
+            <article class="staff-member flex items-center gap-4 border-b border-ink/10 py-5 sm:px-4 lg:border-b-0 lg:border-r">
+              <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-ink text-sm font-bold text-gold" aria-hidden="true">AS</span><div><h4 class="font-semibold">Anita Saint Louis</h4><p class="mt-1 text-xs font-bold uppercase tracking-widest text-wine">Registrar</p></div>
+            </article>
+            <article class="staff-member flex items-center gap-4 border-b border-ink/10 py-5 sm:px-4 lg:border-b-0 lg:border-r">
+              <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-wine text-sm font-bold text-white" aria-hidden="true">KA</span><div><h4 class="font-semibold">Keisha Albert</h4><p class="mt-1 text-xs font-bold uppercase tracking-widest text-wine">Assistant Registrar</p></div>
+            </article>
+            <article class="staff-member flex items-center gap-4 border-b border-ink/10 py-5 sm:px-4 lg:border-b-0 lg:border-r">
+              <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-slate text-sm font-bold text-white" aria-hidden="true">KG</span><div><h4 class="font-semibold">Keena Gwata</h4><p class="mt-1 text-xs font-bold uppercase tracking-widest text-wine">Media Relations</p></div>
+            </article>
+            <article class="staff-member flex items-center gap-4 py-5 sm:px-4">
+              <span class="grid h-12 w-12 shrink-0 place-items-center rounded-full bg-gold text-sm font-bold text-ink" aria-hidden="true">TB</span><div><h4 class="font-semibold">Tamika Bacchus</h4><p class="mt-1 text-xs font-bold uppercase tracking-widest text-wine">Media Relations</p></div>
+            </article>
+          </div>
         </div>
       </div>
     </section>
@@ -609,63 +772,97 @@
 
     <section id="experience" class="overflow-hidden bg-ink px-5 py-24 text-white sm:px-8 lg:py-32">
       <div class="mx-auto max-w-7xl">
-        <div class="grid gap-14 lg:grid-cols-2 lg:gap-24">
-          <div class="reveal">
-            <p class="eyebrow text-xs font-bold text-gold">Built for your calling</p>
-            <h2 class="mt-5 font-display text-4xl leading-tight sm:text-5xl">Your classroom can be anywhere. Your impact
-              won’t stay there.</h2>
-            <p class="mt-6 max-w-lg leading-8 text-white/60">Flexible online study connects your learning to the
-              ministry and community contexts where you already serve.</p><button data-open="applyModal"
-              class="mt-9 rounded-full bg-gold px-7 py-4 text-sm font-bold text-ink hover:bg-white">Talk to
-              admissions</button>
+        <div class="reveal grid gap-8 lg:grid-cols-[1fr_.72fr] lg:items-end">
+          <div>
+            <p class="eyebrow text-xs font-bold text-gold">Student experience</p>
+            <h2 class="mt-5 max-w-4xl font-display text-4xl font-semibold leading-tight sm:text-6xl">A flexible classroom. A connected community.</h2>
           </div>
-          <ol class="space-y-1" aria-label="Student journey">
-            <li class="journey-step reveal flex gap-6 border-t border-white/15 py-7"><span
-                class="font-display text-3xl text-gold">01</span>
-              <div>
-                <h3 class="text-xl font-bold">Choose your direction</h3>
-                <p class="mt-2 text-sm leading-6 text-white/55">Identify the pathway that supports your calling and
-                  leadership goals.</p>
-              </div>
-            </li>
-            <li class="journey-step reveal flex gap-6 border-t border-white/15 py-7"><span
-                class="font-display text-3xl text-gold">02</span>
-              <div>
-                <h3 class="text-xl font-bold">Learn in community</h3>
-                <p class="mt-2 text-sm leading-6 text-white/55">Study online alongside a diverse, international
-                  community of Christian leaders.</p>
-              </div>
-            </li>
-            <li class="journey-step reveal flex gap-6 border-y border-white/15 py-7"><span
-                class="font-display text-3xl text-gold">03</span>
-              <div>
-                <h3 class="text-xl font-bold">Put knowledge to work</h3>
-                <p class="mt-2 text-sm leading-6 text-white/55">Apply biblical insight and practical leadership where
-                  transformation is needed.</p>
-              </div>
-            </li>
-          </ol>
+          <p class="text-lg leading-8 text-white/65">Learn online without learning alone. Discussion, mentoring and practical ministry bring a global cohort into one shared experience.</p>
+        </div>
+
+        <figure class="reveal relative mt-14 overflow-hidden rounded-[2rem] border border-white/15 bg-slate sm:rounded-[3rem]">
+          <img src="assets/student-life-campus.png" alt="Adult students collaborating with a mentor in a modern hybrid learning space" class="student-life-image h-[520px] w-full object-cover sm:h-[650px]" loading="lazy">
+          <div class="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent"></div>
+          <figcaption class="absolute bottom-5 left-5 right-5 max-w-md rounded-2xl border border-white/20 bg-ink/80 p-5 backdrop-blur-md sm:bottom-8 sm:left-8 sm:p-7">
+            <span class="text-xs font-bold uppercase tracking-[.18em] text-gold">Daily life at TTSD</span>
+            <p class="mt-3 text-lg leading-7 text-white/80">Live teaching, peer conversation and guided study fit around the places our students already lead and serve.</p>
+          </figcaption>
+        </figure>
+
+        <div class="mt-20 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+          <div class="reveal">
+            <p class="eyebrow text-xs font-bold text-gold">Student stories</p>
+            <h3 class="mt-4 font-display text-3xl font-semibold sm:text-4xl">Meet our global learning family.</h3>
+          </div>
+          <p class="reveal max-w-md text-sm leading-7 text-white/55">Short visual profiles introduce members of TTSD’s first graduating class and the communities they serve.</p>
+        </div>
+        <div class="mt-9 grid gap-5 md:grid-cols-3">
+          <button class="story-card reveal group overflow-hidden rounded-[2rem] border border-white/15 bg-white/5 text-left" data-story-name="Amos Kamusiime" data-story-role="Pastor · Uganda" data-story-image="assets/graduates/amos-kamusiime-studio.png" data-story-copy="Amos represents TTSD’s international learning community in Uganda. As a pastor and member of the first graduating class, his profile reflects the school’s commitment to learning that remains connected to active ministry.">
+            <span class="student-portrait relative block h-72 overflow-hidden"><img src="assets/graduates/amos-kamusiime-studio.png" alt="Amos Kamusiime" class="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105" loading="lazy"><span class="absolute bottom-4 right-4 z-10 grid h-14 w-14 place-items-center rounded-full bg-gold text-ink shadow-xl" aria-hidden="true">▶</span></span>
+            <span class="block p-6"><strong class="block text-xl">Amos Kamusiime</strong><span class="mt-2 block text-sm text-white/55">Pastor · Uganda</span><span class="mt-5 inline-block text-xs font-bold uppercase tracking-widest text-gold">View visual story →</span></span>
+          </button>
+          <button class="story-card reveal group overflow-hidden rounded-[2rem] border border-white/15 bg-white/5 text-left" data-story-name="Sarah Greig" data-story-role="Pastor · CVR Canada" data-story-image="assets/graduates/sarah-greig-studio.png" data-story-copy="Sarah is part of TTSD’s first graduating class and serves in Canada. Her profile connects academic formation with the practical realities of ministry and leadership in a local community.">
+            <span class="student-portrait relative block h-72 overflow-hidden"><img src="assets/graduates/sarah-greig-studio.png" alt="Sarah Greig" class="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105" loading="lazy"><span class="absolute bottom-4 right-4 z-10 grid h-14 w-14 place-items-center rounded-full bg-gold text-ink shadow-xl" aria-hidden="true">▶</span></span>
+            <span class="block p-6"><strong class="block text-xl">Sarah Greig</strong><span class="mt-2 block text-sm text-white/55">Pastor · CVR Canada</span><span class="mt-5 inline-block text-xs font-bold uppercase tracking-widest text-gold">View visual story →</span></span>
+          </button>
+          <button class="story-card reveal group overflow-hidden rounded-[2rem] border border-white/15 bg-white/5 text-left" data-story-name="Annastasia M. Nepolo" data-story-role="Pastor · CVR Namibia" data-story-image="assets/graduates/annastasia-nepolo-studio.png" data-story-copy="Annastasia is a Namibian pastor and member of the first TTSD graduating class. Her profile demonstrates the reach of a flexible college model designed for Christian leaders across borders.">
+            <span class="student-portrait relative block h-72 overflow-hidden"><img src="assets/graduates/annastasia-nepolo-studio.png" alt="Annastasia M. Nepolo" class="h-full w-full object-cover object-top transition duration-700 group-hover:scale-105" loading="lazy"><span class="absolute bottom-4 right-4 z-10 grid h-14 w-14 place-items-center rounded-full bg-gold text-ink shadow-xl" aria-hidden="true">▶</span></span>
+            <span class="block p-6"><strong class="block text-xl">Annastasia M. Nepolo</strong><span class="mt-2 block text-sm text-white/55">Pastor · CVR Namibia</span><span class="mt-5 inline-block text-xs font-bold uppercase tracking-widest text-gold">View visual story →</span></span>
+          </button>
         </div>
       </div>
     </section>
 
-    <section id="global" class="relative bg-mist px-5 py-24 sm:px-8 lg:py-32">
-      <div class="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-center">
-        <div class="reveal">
-          <p class="eyebrow text-xs font-bold text-wine">A worldwide learning family</p>
-          <p class="mt-5 font-display text-[7rem] font-bold leading-none text-ink sm:text-[10rem]" data-count="23">0</p>
-          <h2 class="font-display text-3xl">countries—and growing.</h2>
-          <p class="mt-6 max-w-md leading-8 text-ink/60">From Canada to Zimbabwe, Jamaica to India, our students bring
-            local experience into one global conversation.</p>
+    <section id="global" class="relative overflow-hidden bg-cream px-5 py-24 sm:px-8 lg:py-32">
+      <div class="absolute -right-40 top-10 h-[34rem] w-[34rem] rounded-full border border-wine/10" aria-hidden="true"></div>
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal grid gap-8 lg:grid-cols-[1.15fr_.85fr] lg:items-end">
+          <div>
+            <p class="eyebrow text-xs font-bold text-wine">A worldwide learning family</p>
+            <h2 class="mt-5 max-w-4xl font-display text-4xl font-semibold leading-[1.05] sm:text-6xl">One college. Many nations. <span class="text-wine">One shared calling.</span></h2>
+          </div>
+          <p class="max-w-xl text-lg leading-8 text-ink/60 lg:justify-self-end">Students bring the realities of their churches, communities and countries into one international classroom—then carry their learning home.</p>
         </div>
-        <div class="map-shell reveal overflow-hidden rounded-[2.4rem] border border-white p-3 sm:p-4">
-          <div id="globalMap" role="img"
-            aria-label="Static world map showing the 23 countries reached by the TTSD learning community"></div>
-          <div
-            class="flex items-center justify-between gap-4 px-3 pb-1 pt-4 text-[10px] font-bold uppercase tracking-[.14em] text-ink/55 sm:px-4">
-            <span class="flex items-center gap-2"><i class="h-2.5 w-2.5 rounded-full bg-gold"></i>Hamilton
-              hub</span><span class="flex items-center gap-2"><i class="h-2.5 w-2.5 rounded-full bg-wine"></i>Global
-              community</span></div>
+
+        <div class="global-stage map-shell reveal mt-14 overflow-hidden rounded-[2.25rem] border border-white bg-mist p-3 sm:rounded-[3rem] sm:p-5">
+          <div class="flex flex-col gap-3 px-3 pb-4 pt-2 sm:flex-row sm:items-center sm:justify-between sm:px-4">
+            <p class="text-xs font-bold uppercase tracking-[.18em] text-ink/45">TTSD global community map</p>
+            <div class="flex flex-wrap gap-4 text-[10px] font-bold uppercase tracking-[.14em] text-ink/55">
+              <span class="flex items-center gap-2"><i class="h-2.5 w-2.5 rounded-full bg-gold ring-4 ring-gold/15"></i>Hamilton hub</span>
+              <span class="flex items-center gap-2"><i class="h-2.5 w-2.5 rounded-full bg-wine ring-4 ring-wine/10"></i>Learning community</span>
+            </div>
+          </div>
+
+          <div class="grid gap-3 lg:grid-cols-[280px_1fr]">
+            <aside class="global-summary relative overflow-hidden rounded-[1.75rem] bg-white p-7 sm:p-9">
+              <div class="absolute -right-12 -top-12 h-36 w-36 rounded-full bg-gold/20" aria-hidden="true"></div>
+              <p class="relative text-xs font-bold uppercase tracking-[.18em] text-wine">Our reach</p>
+              <p class="global-number relative mt-5 font-display text-8xl font-extrabold leading-none tracking-[-.07em] text-ink" data-count="23">0</p>
+              <p class="relative mt-2 text-lg font-semibold text-ink">countries and growing</p>
+              <p class="relative mt-5 text-sm leading-7 text-ink/55">From Canada to Zimbabwe, Jamaica to India, local experience enriches every shared conversation.</p>
+
+              <div class="relative mt-8 space-y-4 border-t border-ink/10 pt-7">
+                <div class="global-stat flex items-center justify-between gap-4"><span class="text-sm text-ink/55">Learning model</span><strong class="text-sm">100% online</strong></div>
+                <div class="global-stat flex items-center justify-between gap-4"><span class="text-sm text-ink/55">Perspective</span><strong class="text-sm">International</strong></div>
+                <div class="global-stat flex items-center justify-between gap-4"><span class="text-sm text-ink/55">Community</span><strong class="text-sm">Faith-centred</strong></div>
+              </div>
+            </aside>
+
+            <div class="overflow-hidden rounded-[1.75rem] bg-[#dfe5e8] p-1.5">
+              <div id="globalMap" role="img" aria-label="Static grey world map showing the 23 countries reached by the TTSD learning community"></div>
+            </div>
+          </div>
+
+          <div class="country-ribbon mt-3 overflow-hidden rounded-[1.25rem] bg-white py-4" aria-label="Countries represented in the TTSD learning community">
+            <div class="country-track flex items-center text-xs font-bold uppercase tracking-[.13em] text-ink/45">
+              <div class="country-group flex items-center gap-7 px-4">
+                <span class="text-wine">Connected across borders</span><i class="h-1 w-1 rounded-full bg-gold"></i><span>Canada</span><span>Zimbabwe</span><span>Nigeria</span><span>Sierra Leone</span><span>Jamaica</span><span>Uganda</span><span>Namibia</span><span>India</span><span>United Kingdom</span><span>South Africa</span><span>Zambia</span><span>Kenya</span><span>Barbados</span><span>Guyana</span>
+              </div>
+              <div class="country-group flex items-center gap-7 px-4" aria-hidden="true">
+                <span class="text-wine">Connected across borders</span><i class="h-1 w-1 rounded-full bg-gold"></i><span>Canada</span><span>Zimbabwe</span><span>Nigeria</span><span>Sierra Leone</span><span>Jamaica</span><span>Uganda</span><span>Namibia</span><span>India</span><span>United Kingdom</span><span>South Africa</span><span>Zambia</span><span>Kenya</span><span>Barbados</span><span>Guyana</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -692,24 +889,31 @@
       </div>
     </section>
 
-    <section id="graduates" class="bg-[#f0f3f5] px-5 py-24 sm:px-8 lg:py-32">
+    <section id="alumni" class="overflow-hidden bg-[#F1F4F6] px-5 py-24 sm:px-8 lg:py-32">
       <div class="mx-auto max-w-7xl">
-        <div class="reveal grid gap-8 border-b border-ink/15 pb-12 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
-          <div>
-            <p class="eyebrow text-xs font-bold text-wine">Class of 2024</p>
-            <h2 class="mt-4 font-display text-5xl sm:text-6xl">First fruits.<br><em class="text-wine">Future
-                changemakers.</em></h2>
-          </div>
-          <div>
-            <blockquote class="font-display text-xl italic leading-8 text-ink/70">“Blessed is the one who perseveres
-              under trial because, having stood the test, that person will receive the crown of life.”</blockquote>
-            <p class="mt-3 text-xs font-bold uppercase tracking-widest text-wine">James 1:12</p>
+        <div class="alumni-hero reveal p-7 sm:p-10 lg:p-14">
+          <div class="grid gap-12 lg:grid-cols-[1.12fr_.88fr] lg:items-end">
+            <div>
+              <div class="flex items-center gap-4">
+                <span class="alumni-seal" aria-hidden="true"><svg class="h-11 w-11" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m4 18 20-9 20 9-20 9L4 18Z"/><path d="M11 22.5V33c7 5.5 19 5.5 26 0V22.5M44 18v14"/><path d="M40.5 35h7L44 29l-3.5 6Z" fill="currentColor" stroke="none"/></svg></span>
+                <div><p class="text-xs font-bold uppercase tracking-[.24em] text-gold">TTSD Alumni</p><p class="mt-2 text-sm text-white/55">Inaugural graduating cohort</p></div>
+              </div>
+              <h2 class="mt-9 max-w-3xl font-display text-5xl font-semibold leading-[.98] sm:text-6xl lg:text-7xl">The first fruits.<br><span class="text-gold">Called to lead.</span></h2>
+            </div>
+            <div class="max-w-xl lg:pb-2">
+              <blockquote class="font-display text-xl italic leading-8 text-white/78">“Blessed is the one who perseveres under trial because, having stood the test, that person will receive the crown of life.”</blockquote>
+              <div class="mt-6 flex flex-wrap items-center gap-4"><p class="text-xs font-bold uppercase tracking-widest text-gold">James 1:12</p><span class="h-px w-12 bg-white/25"></span><p class="text-xs font-bold uppercase tracking-widest text-white/45">Class of 2024</p></div>
+            </div>
           </div>
         </div>
-        <p class="reveal mt-8 text-sm font-medium text-ink/55">Select a graduate to view their profile.</p>
-        <div class="graduate-list mt-7 grid grid-cols-1 items-start gap-x-10 lg:grid-cols-2">
+        <div class="alumni-directory reveal">
+          <div class="mb-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div><p class="text-xs font-bold uppercase tracking-[.2em] text-wine">Graduate directory</p><p id="alumniResultCount" class="mt-1 text-sm text-ink/50" aria-live="polite">Showing 8 graduates</p></div>
+            <label class="relative block"><span class="sr-only">Search the Class of 2024</span><input id="alumniSearch" class="alumni-search" type="search" placeholder="Search name, role or country"><svg class="pointer-events-none absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-ink/35" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg></label>
+          </div>
+          <div class="graduate-list grid grid-cols-1 items-start gap-x-10 lg:grid-cols-2">
           <article class="graduate-card reveal overflow-hidden rounded-2xl bg-mist">
-            <div class="aspect-[3/4] overflow-hidden bg-slate"><img src="assets/graduates/amos-kamusiime.png"
+            <div class="aspect-[3/4] overflow-hidden bg-slate"><img src="assets/graduates/amos-kamusiime-studio.png"
                 alt="Amos Kamusiime, 2024 graduate" class="h-full w-full object-cover object-top" loading="lazy"></div>
             <div class="p-4 sm:p-5">
               <h3 class="font-display text-lg">Amos Kamusiime</h3>
@@ -758,7 +962,7 @@
             </div>
           </article>
           <article class="graduate-card reveal overflow-hidden rounded-2xl bg-mist">
-            <div class="aspect-[3/4] overflow-hidden bg-slate"><img src="assets/graduates/sarah-greig.png"
+            <div class="aspect-[3/4] overflow-hidden bg-slate"><img src="assets/graduates/sarah-greig-studio.png"
                 alt="Sarah Greig, 2024 graduate" class="h-full w-full object-cover object-top" loading="lazy"></div>
             <div class="p-4 sm:p-5">
               <h3 class="font-display text-lg">Sarah Greig</h3>
@@ -874,7 +1078,7 @@
             </div>
           </article>
           <article class="graduate-card reveal overflow-hidden rounded-2xl bg-mist">
-            <div class="aspect-[3/4] overflow-hidden bg-slate"><img src="assets/graduates/annastasia-nepolo.png"
+            <div class="aspect-[3/4] overflow-hidden bg-slate"><img src="assets/graduates/annastasia-nepolo-studio.png"
                 alt="Annastasia M. Nepolo, 2024 graduate" class="h-full w-full object-cover object-top" loading="lazy">
             </div>
             <div class="p-4 sm:p-5">
@@ -909,6 +1113,9 @@
               <p class="mt-1 text-xs text-ink/55">Evangelist • CVR Canada</p>
             </div>
           </article>
+          </div>
+          <p id="alumniEmpty" class="alumni-empty">No graduate matches that search. Try a name, ministry role or country.</p>
+          <div class="mt-7 flex justify-center"><button id="alumniViewAll" class="alumni-view-all focus-ring" type="button" aria-expanded="false">View the full Class of 2024 <span aria-hidden="true">↓</span></button></div>
         </div>
       </div>
     </section>
@@ -985,6 +1192,25 @@
       <p>Re-Educate • Inspire • Release</p>
     </div>
   </footer>
+
+  <div id="storyModal" class="modal fixed inset-0 z-[80] hidden items-center justify-center bg-ink/85 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="storyTitle">
+    <article class="modal-panel max-h-[92svh] w-full max-w-4xl overflow-hidden rounded-[2rem] bg-white shadow-2xl lg:grid lg:grid-cols-[.8fr_1.2fr]">
+      <div class="relative min-h-[320px] overflow-hidden bg-slate lg:min-h-[620px]">
+        <img id="storyImage" src="assets/graduates/amos-kamusiime-studio.png" alt="" class="story-visual absolute inset-0 h-full w-full object-cover object-top">
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent"></div>
+        <span class="absolute bottom-6 left-6 rounded-full border border-white/25 bg-ink/55 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white backdrop-blur">TTSD student story</span>
+      </div>
+      <div class="relative flex flex-col justify-center p-7 sm:p-10 lg:p-14">
+        <button data-close class="focus-ring absolute right-5 top-5 grid h-11 w-11 place-items-center rounded-full bg-ink/5" aria-label="Close story">✕</button>
+        <p class="eyebrow text-xs font-bold text-wine">From our global classroom</p>
+        <h2 id="storyTitle" class="mt-5 pr-10 font-display text-4xl font-semibold sm:text-5xl">Amos Kamusiime</h2>
+        <p id="storyRole" class="mt-3 font-bold text-wine">Pastor · Uganda</p>
+        <div class="mt-8 h-px w-20 bg-gold"></div>
+        <p id="storyCopy" class="mt-8 text-lg leading-8 text-ink/65"></p>
+        <button id="storyApply" class="mt-9 w-fit rounded-full bg-wine px-7 py-4 text-sm font-bold text-white">Start your own journey →</button>
+      </div>
+    </article>
+  </div>
 
   <div id="presidentModal"
     class="modal fixed inset-0 z-[80] hidden items-center justify-center bg-ink/80 p-4 backdrop-blur-sm" role="dialog"
